@@ -112,8 +112,8 @@ x_username: RabeyaA39672541 # your X handle
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
-contact_note: >
-   Let's connect!
+contact_note: > 
+  Let's connect!
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -134,13 +134,13 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: # blog_name will be displayed in your blog page
-blog_description: 
+blog_description: # 
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: false
+  enabled: true
 
 related_blog_posts:
   enabled: false
@@ -169,12 +169,12 @@ disqus_shortname:  # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: 
-    rss_url: 
-  - name: 
+  - name: # 
+    rss_url: # 
+  - name: # 
     posts:
-      - url: 
-        published_date:
+      - url: # 
+        published_date: # 
 
 # -----------------------------------------------------------------------------
 # Newsletter
