@@ -1,14 +1,9 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: Boston University, Boston, MA, USA
-      year: 2023 - present
-      Advisor: Prof. Bryan Plummer
-      Group: IVC-ML
-    - title: BSc. in Computer Science and Engineering
-      institution: Shahjalal University of Science and Technology, Sylhet, Bangladesh
-      year: 2017 - 2021
+    - title: BSc. in Robotics and Mechatronics Engineering
+      institution: University of Dhaka, Bangladesh
+      year: 2019 - 2024
 
 - title: Experience
   type: time_table
@@ -21,13 +16,7 @@
       institution: GigaTech Ltd., Dhaka, Bangladesh
       year: 2021 - 2022
 
-    - title: Research Assistant
-      institution: BRAC University, Dhaka, Bangladesh
-      year: 2022
 
-    - title: Research Affiliate
-      institution: Bengali.AI, Dhaka, Bangladesh
-      year: 2021 - present
 
 # - title: Honors and Awards
 #   type: time_table
