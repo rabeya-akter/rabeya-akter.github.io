@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Joined Therap (BD) Ltd. as Associate Software Engineer, QA in the Machine Learning Team. 
+Joined Therap (BD) Ltd. as an Associate Software Engineer, QA in the Machine Learning Team. 
