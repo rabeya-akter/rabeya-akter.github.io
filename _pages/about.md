@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Therap (BD) Ltd.</a>. Dhaka, Bangladesh.
 
 profile:
   align: right
-  image: final.png
+  image: Untitled.png
   image_circular: False # crops the image to make it circular
   #more_info: >
   #  <p>555 your office number</p>

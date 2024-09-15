@@ -1,14 +1,12 @@
 ---
 layout: page
-title: project 4
+title: A Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States
 description: Human Robot Interaction
 img:
 importance: 3
 category: fun
 ---
-   ---
-   Project Title : A Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States
-   ---
+   
 
 Project Goals: 
 - Emotional Impact Analysis: Quantify the impact of NAO and human emotional support for specific emotions.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 3
+title: Human Activity Recognition Using Location Data
 description: Machine Learning
 img: 
 redirect:
@@ -9,11 +9,6 @@ category: work
 ---
 
 
-
-
-    ---
-    Project Title: Human Activity Recognition Using Location Data
-    ---
 
 Developed a classification model using location data with statistical feature extraction and a Random Forest classifier to identify 8 different activities and modes of locomotion, achieving a validation accuracy of 78.138% and a weighted F1 score of 78.28%, ranking 11th best result in the dataset.
 

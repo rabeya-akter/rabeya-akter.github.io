@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 1
+title: Continuous Sign Language Translation
 description: 
 img: 
 importance: 1
@@ -8,10 +8,6 @@ category: work
 related_publications: true
 ---
 
-
-    ---
-    Project Title: Continuous Sign Language Translation
-    ---
 
 Developed SignFormer-GCN, a novel architecture combining transformer and STGCN to capture both high-level context and low-level spatial-temporal dependencies in sign language translation, integrating keypoint and RGB features to enhance recognition of body configurations and expressions, achieving competitive performance on RWTH-PHOENIX-2014T, How2Sign, and BornilDB v1.0 datasets.
 
