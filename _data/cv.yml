@@ -41,18 +41,7 @@
   type: time_table
   contents:
 
-  """
-    - title: Associate Software Engineer, QA
-      institution: 
-      year: 1933 - 1955
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-  """
+ 
     - title: Associate Software Engineer, QA
       institution: Therap (BD) Ltd.
       year: Apr 2024 - Present
@@ -120,22 +109,3 @@
       description: 
           - Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions.
   
-
-"""
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
-"""
