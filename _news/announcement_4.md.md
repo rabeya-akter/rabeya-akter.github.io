@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Defended my B.Sc. final thesis/project.
+Defended B.Sc. final thesis.
