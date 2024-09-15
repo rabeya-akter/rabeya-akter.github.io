@@ -1,99 +1,119 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Rabeya Akter
-    - name: Date of Birth
-      value: 23rd October 2000
-    - name: Languages
-      value: English, Bengali
-
 - title: Education
   type: time_table
   contents:
-    - title: B.Sc. in Robotics and Mechatronics Engineering
-      institution: University of Dhaka, Dhaka, Bangladesh
-      year: Jan 2019 - Mar 2024
+    - title: PhD
+      institution: Boston University, Boston, MA, USA
+      year: 2023 - present
+      Advisor: Prof. Bryan Plummer
+      Group: IVC-ML
+    - title: BSc. in Computer Science and Engineering
+      institution: Shahjalal University of Science and Technology, Sylhet, Bangladesh
+      year: 2017 - 2021
 
-
-- title: Research Experience
+- title: Experience
   type: time_table
   contents:
-    - title: Undergraduate Research Assistant
-      institution: Department of Robotics and Mechatronics Engineering, University of Dhaka
-      year: Jan 2023 - Dec 2024
-      description: 
-        - Designed and implemented a novel architecture for BdSL translation, establishing the first benchmark in this low-resource language domain.
-        - Authored a manuscript detailing innovative methodology and findings, currently under review.
+    - title: Research Developer
+      institution: Wikimedia Foundation, San Francisco, CA, USA
+      year: 2022 - 2023
 
+    - title: Machine Learning Engineer
+      institution: GigaTech Ltd., Dhaka, Bangladesh
+      year: 2021 - 2022
 
-- title: Professional Experience
-  type: time_table
+    - title: Research Assistant
+      institution: BRAC University, Dhaka, Bangladesh
+      year: 2022
+
+    - title: Research Affiliate
+      institution: Bengali.AI, Dhaka, Bangladesh
+      year: 2021 - present
+
+# - title: Honors and Awards
+#   type: time_table
+#   contents:
+#     - year: 2023
+#       items:
+#         - Recipient of CRA-WP Grad Cohort Scholarship
+#         - Recipient of Dean’s Fellowship
+#     - year: 2022
+#       items:
+#         - Outreachy Internship at the Wikimedia Foundation
+#         - Second Runner-up at MSFT Imagine Cup - SEANM
+#         - Second Runner-up in CVPR AI City Challenge Track-4
+#     - year: 2021
+#       items:
+#         - Grace Hopper Scholarship Recipient
+#     - year: 2020
+#       items:
+#         - 4th place in AI-Based Dhaka Traffic Detection Challenge
+#     - year: 2019
+#       items:
+#         - Champion in BRACATHON 3.0 - Healthcare
+#         - Champion in SUST Tech Fest - Hackathon
+
+- title: Research Interests
+  type: list
   contents:
-    - title: Associate Software Engineer, QA
-      institution: Therap (BD) Ltd.
-      year: Apr 2024 - Present
-      description: 
-        - Lead quality assurance efforts for the video redaction system to develop and implement comprehensive test plans and cases to validate machine learning algorithms used in video processing.
-        - Collaborate with cross-functional teams to identify and resolve complex bugs, significantly improving system reliability.
+    - Parameter-efficient Learning - Doing more with less
+    - Multimodal Learning - This just makes sense as a human
+    - Bias Mitigation and domain adaptation - Fair and Flexible AI
+    - AI For Social Good - Why not make the world a better place, while we are at it?
+    - Knowledge-guided Learning - What if decisions were made based on reasoning?
+    - Low-resource Learning - This is where the real challenge lies
+    - Continual Learning - Learning to learn
 
-    - title: Data Science Intern
-      institution: Pathao Limited
-      year: Jan 2024 - Mar 2024
-      description:
-        - Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals.
-        - Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights.
+# - title: Other Interests
+#   type: list
+#   contents:
+#     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
 
-
-
-- title: Honors and Awards
-  type: time_table
+- title: Skills
+  type: nested_list
   contents:
-    - year: 2021
+    - title: Programming Languages
       items:
-        - Honourable Mention, NASA Earth Observatory (EO) Dashboard Hackathon  
-    - year: 2021
+        - Python, C++, Java, JavaScript, SQL, SPARQL
+
+    - title: Machine Learning Frameworks
       items:
-        - Second Runner up, Ada Lovelace Datathon 
-    - year: 2021
-      items : 
-        - 11th, Sussex Huawei Locomotion Challenge
-    - year: 2019
-      items: 
-        - 10th, 3rd Women’s Mathematics Olympiad
-    - year: 2019
-      items: 
-        - 2nd, Pi Day Celebration
-    - year: 2018
-      items:  
-        - Dhaka Board Talent Pool Scholarship, Higher Secondary Certificate Examination
+        - PyTorch
+        - Keras
+        - OpenCV
+        - pySpark
+    - title: Frameworks
+      items:
+        - Flask, Django, Android
+    - title: Tools and Misc.
+      items:
+        - Git, Docker, Linux, Bash, LaTeX, Markdown, HTML, CSS, Firebase
 
-
- title: Leadership/Volunteer Activities
-  type: time_table
+- title: Leadership & Service
+  type: nested_list
   contents:
+    - title: Leadership
+      items:
+        - Founding Member - SUST ACM Student Chapter
+        - Judge - SUST Tech Fest DL Enigma, BDOSN NLP Hackathon
+        - Organizing Committee - IEEE ICBSLP, 2019. SUST Tech Fest, 2020
+    - title: Service
+      items:
+        - Mentor - HSA , Intl. ML Olympiad
+        - Volunteer - Outreacy, BDOSN Ada Lovelace Celebration,
 
-    - title: Student Activity Secretary
-      institution: IEEE, University of Dhaka Student Branch
-      year: Jan 2023 - Dec 2023
-      description: 
-        - Organized several workshops, interactive sessions and industry expert experience sharing sessions.
-
-    - title: Mentor
-      institution: Bangladesh Robot Olympiad (BdRO)
-      year:  2019 - 2020
-      description: 
-        - Conducted robotics workshops in multiple high schools and developed engaging quizzes for BdRO.
-
-    - title: Mentor
-      institution: Bangladesh Artificial Intelligence Olympiad (BdAIO)
-      year:  2024 - Present
-      description: 
-        - Designed and delivered lessons on classification algorithms and evaluation metrics for a group of 10 high school students, and created quizzes to assess their understanding.
-
-    - title:  Speaker at Dui Prishthar Bisheshoggo
-      institution: IEEE Women In Engineering, University of Dhaka Student Branch
-      year:  2023 
-      description: 
-        - Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions.
-  
+- title: Non-academic Interests
+  type: nested_list
+  contents:
+    - title:
+      items:
+        - Malai Chaa ☕
+        - Gothic Horror 🦇
+        - Cosmic Horror 🌌
+        - Ritual Horror 🕯️
+        - Ambient Horror 🌫️
+        - Magical Realism ✨
+        - Fall of my enemies ☠️
+        - Comics 🦸‍♂️
+        - Anime productions by Mappa 🎌
+        - Seas with warm water 🌊
+        - Literally anything by Neil Gaiman and Alan Moore 📚
