@@ -9,11 +9,11 @@ giscus_comments: true
 ---
 
 
----
-    Project Title: Automated Stock Trading Using Approximate Q Learning
-    Description: Developed an automated stock trading system using approximate Q-learning to optimize buy, sell, and hold decisions for three Bangladeshi stocks, achieving an 11% return on investment and demonstrating the effectiveness of reinforcement learning in financial decision-making. 
----
-
+   ---
+    Project Title: Automated Stock Trading Using Approximate Q Learning 
+   ---
+   
+An automated stock trading system was developed in this project using approximate Q-learning to optimize buy, sell, and hold decisions for three Bangladeshi stocks, achieving an 11% return on investment and demonstrating the effectiveness of reinforcement learning in financial decision-making. 
 The following graphs shows the Price-Buy-Sell trends for three stocks. 
 
 <div class="row">

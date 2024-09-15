@@ -6,30 +6,9 @@ img:
 importance: 3
 category: fun
 ---
- ---
+   ---
    Project Title : A Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States
- ---
-
-
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/nao1.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/nao2.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/nao3.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/nao4.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
+   ---
 
 Project Goals: 
 - Emotional Impact Analysis: Quantify the impact of NAO and human emotional support for specific emotions.
@@ -41,9 +20,17 @@ Project Goals:
 - Drawing Conclusive Insights: Arrive at clear conclusions about the proficiency of emotional support sources and pinpoint areas for improvement
  
 
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/nao1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>   
+</div>
+
+
 Demo Videos:
-- Happiness: https://youtu.be/ssw4qzzGjA8
-- Sadness: https://youtu.be/w5L0kWvJ2N8
-- Fear: https://youtu.be/Y1V9DRkVTuw
+- [Happiness](https://youtu.be/ssw4qzzGjA8)
+- [Sadness](https://youtu.be/w5L0kWvJ2N8)
+- [Fear](https://youtu.be/Y1V9DRkVTuw)
 
 
