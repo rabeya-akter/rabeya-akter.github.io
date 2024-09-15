@@ -2,37 +2,48 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Rabeya Akter
     - name: Date of Birth
-      value: 14th March 1879
+      value: 23rd October 2000
     - name: Languages
-      value: English, German
+      value: English, Bengali
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    #- title: PhD
+    #  institution: University of Zurich, Zurich, Switzerland
+    #  year: 1905
+    #  description:
+    #    - Description 1.
+    #    - Description 2.
+    #    - title: Description 3.
+    #      contents:
+     #       - Sub-description 1.
+     #       - Sub-description 2.
+    - title: B.Sc. in Robotics and Mechatronics Engineering
+      institution: University of Dhaka, Dhaka, Bangladesh
+      year: Jan 2019 - Mar 2024
 
-- title: Experience
+
+- title: Research Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
+    - title: Undergraduate Research Assistant
+      institution: Department of Robotics and Mechatronics Engineering, University of Dhaka
+      year: Jan 2023 - Dec 2024
+      description: 
+          - Designed and implemented a novel architecture for BdSL translation, establishing the first benchmark in this low-resource language domain.
+          - Authored a manuscript detailing innovative methodology and findings, currently under review.
+
+
+- title: Professional Experience
+  type: time_table
+  contents:
+
+  """
+    - title: Associate Software Engineer, QA
+      institution: 
       year: 1933 - 1955
       description:
         - Description 1.
@@ -41,44 +52,76 @@
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+  """
+    - title: Associate Software Engineer, QA
+      institution: Therap (BD) Ltd.
+      year: Apr 2024 - Present
+      description: 
+          - Lead quality assurance efforts for the video redaction system to develop and implement comprehensive test plans and cases to validate machine learning algorithms used in video processing.
+          - Collaborate with cross-functional teams to identify and resolve complex bugs, significantly improving system reliability.
+
+    - title: Data Science Intern
+      institution: Pathao Limited
+      year: Jan 2024 - Mar 2024
       description:
-        - Description 1.
-        - Description 2.
+        - Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals.
+        - Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
 
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2021
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Honourable Mention, NASA Earth Observatory (EO) Dashboard Hackathon  
+    - year: 2021
       items:
-        - Max Planck Medal
+        - Second Runner-up, Ada Lovelace Datathon 
+    - year: 2021
+      items : 
+      - 11th , Sussex Huawei Locomotion Challenge
+    - year : 2019
+      items : 
+      - 10th , 3rd Women’s Mathematics Olympiad
+    - year: 2019
+      items : 
+      - 2nd , Pi Day Celebration
+    - year: 2018
+      items :  
+      - Dhaka Board Talent Pool Scholarship, Higher Secondary Certificate Examination
 
+
+ title: Leadership/Volunteer Activities
+  type: time_table
+  contents:
+
+    - title: Student Activity Secretary
+      institution: IEEE, University of Dhaka Student Branch
+      year: Jan 2023 - Dec 2023
+      description: 
+          - Organized several workshops, interactive sessions and industry expert experience sharing sessions.
+
+    - title:  Mentor
+      institution: Bangladesh Robot Olympiad (BdRO)
+      year:  2019 - 2020
+      description: 
+          - Conducted robotics workshops in multiple high schools and developed engaging quizzes for BdRO.
+
+    - title:  Mentor
+      institution: Bangladesh Artificial Intelligence Olympiad (BdAIO)
+      year:  2024 - Present
+      description: 
+          - Designed and delivered lessons on classification algorithms and evaluation metrics for a group of 10 high school students, and created quizzes to assess their understanding.
+
+    - title:  Speaker - Dui Prishthar Bisheshoggo
+      institution: IEEE Women In Engineering, University of Dhaka Student Branch
+      year:  2023 
+      description: 
+          - Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions.
+  
+
+"""
 - title: Academic Interests
   type: nested_list
   contents:
@@ -95,3 +138,4 @@
   type: list
   contents:
     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+"""
