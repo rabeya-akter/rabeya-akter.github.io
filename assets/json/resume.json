@@ -36,7 +36,7 @@
       "courses": ["Artificial Intelligence", "Introduction to Machine Learning", "Digital Image Processing and Robot Vision", "Digital Signal Processing", "Object Oriented Programming", "Fundamentals of Programming", "Linear Algebra", "Multivariate and Vector Calculus", "Statistics for Engineers"]
     }
   ],
-  "Professional Experience": [
+  "work": [
     {
       "name": "Therap (BD) Ltd.",
       "position": "Associate Software Engineer, QA",
