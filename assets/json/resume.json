@@ -3,8 +3,11 @@
     "name": "Rabeya Akter",
     "email": "rabeyaakter231023@gmail.com",
     "location": {
+      "address": "",
+      "postalCode": "",
       "city": "Dhaka",
-      "countryCode": "BD"
+      "countryCode": "BD",
+       "region": ""
     },
     "profiles": [
       {
@@ -43,7 +46,7 @@
       "startDate": "Mar 2024",
       "endDate": "Jan 2024",
       "summary": "Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals. Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights."
-    }
+    },
     {
       "name": "Department of Robotics and Mechatronics Engineering, University of Dhaka",
       "position": "Undergraduate Research Assistant",
@@ -59,36 +62,43 @@
       "title": "Honourable Mention, NASA Earth Observatory (EO) Dashboard Hackathon",
       "date": "2021",
       "awarder": "NASA (National Aeronautics and Space Administration), ESA (European Space Agency), and JAXA (Japan Aerospace Exploration Agency)",
-      "url": "https://drive.google.com/file/d/1sLHjOkLs37MT45_t9c6ZRnkfgu20zTKR/view?usp=drive_link"
+      "url": "https://drive.google.com/file/d/1sLHjOkLs37MT45_t9c6ZRnkfgu20zTKR/view?usp=drive_link",
+      "summary": ""
     },
     {
       "title": "Second Runner-up, Ada Lovelace Datathon ",
       "date": "2021",
       "awarder": "Bangladesh Open Source Network (BdOSN)",
-      "url": "https://drive.google.com/file/d/1mJi9iCzo8Aj2GTN1HITRqlAMh84_HKmg/view?usp=drive_link"
+      "url": "https://drive.google.com/file/d/1mJi9iCzo8Aj2GTN1HITRqlAMh84_HKmg/view?usp=drive_link",
+      "summary": ""
     },
     {
       "title": "11th, Sussex Huawei Locomotion Challenge",
       "date": "2021",
       "awarder": "University of Sussex (UK) and Huawei",
-      "url": "http://www.shl-dataset.org/activity-recognition-challenge-2021/"
+      "url": "http://www.shl-dataset.org/activity-recognition-challenge-2021/",
+      "summary": ""
     },
     {
       "title": "10th, 3rd Women’s Mathematics Olympiad",
       "date": "2019",
       "awarder": "Women's Mathematics Olympiad Committee and A F Mujibur Rahman Foundation",
-      "url": "https://drive.google.com/file/d/1GtMS2GGtggZg1pMffH7Mni3q40WgBf68/view?usp=drive_link"
+      "url": "https://drive.google.com/file/d/1GtMS2GGtggZg1pMffH7Mni3q40WgBf68/view?usp=drive_link",
+      "summary": ""
     },
     {
       "title": "2nd, Pi Day Celebration",
       "date": "2019",
       "awarder": "Department of Mathematics, University of Dhaka",
-      "url": "https://drive.google.com/file/d/1xt0w9egqudAb-I5vNoKMzsucsEqHQ-LT/view?usp=drive_link"
+      "url": "https://drive.google.com/file/d/1xt0w9egqudAb-I5vNoKMzsucsEqHQ-LT/view?usp=drive_link",
+      "summary": ""
     },
     {
       "title": "Dhaka Board Talent Pool Scholarship, Higher Secondary Certificate Examination",
       "date": "2018",
-      "awarder": "Bangladesh Government's Ministry of Education Scholarship"
+      "awarder": "Bangladesh Government's Ministry of Education Scholarship",
+      "url" : "",
+      "summary": ""
     }
   ],
   "volunteer": [
@@ -117,7 +127,7 @@
       "organization": "IEEE Women In Engineering",
       "position": "Speaker : Dui Prishthar Bisheshoggo",
       "startDate": "Dec 2023",
-      "summary": "Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions."
+      "highlights": ["Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions."]
     }
   ]
   
@@ -164,12 +174,11 @@
       "url": "https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning"
     },
     {
-      "name": "Human Activity Recognition Using Location Data",
+      "name": "",
       "summary": "Developed a classification model using location data with statistical feature extraction and a Random Forest classifier to identify 8 different activities and modes of locomotion, achieving a validation accuracy of 78.138% and a weighted F1 score of 78.28%, ranking 11th best result in the dataset.",
-      "highlights": ["Machine Learning"],
-      "startDate": "Apr 2021",
-      "endDate": "Jun 2021",
-      "url": "https://github.com/rabeya-akter/Sussex-Huawei-Locomotion-Challenge-2021"
+      "highlights": [],
+      "startDate": "2018-01-01",
+      "endDate": "2018-01-01"
     }
   ]
   ,
