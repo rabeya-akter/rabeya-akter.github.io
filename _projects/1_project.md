@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Continuous Sign Language Translation
-description: 
+description: Natural Language Processing and Computer Vision
 img: 
 importance: 1
 category: work
