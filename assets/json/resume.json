@@ -37,7 +37,7 @@
       "url": "https://therapbd.com/",
       "startDate": "Apr 2024",
       "endDate": "Present",
-      "summary": "Lead quality assurance efforts for the video redaction system to develop and implement comprehensive test plans and cases to validate machine learning algorithms used in video processing. Collaborate with cross-functional teams to identify and resolve complex bugs, significantly improving system reliability."
+      "summary": ["Lead quality assurance efforts for the video redaction system to develop and implement comprehensive test plans and cases to validate machine learning algorithms used in video processing.", "Collaborate with cross-functional teams to identify and resolve complex bugs, significantly improving system reliability."]
     },
     {
       "name": "Pathao Limited",
@@ -45,7 +45,7 @@
       "url": "https://pathao.com/bn/",
       "startDate": "Mar 2024",
       "endDate": "Jan 2024",
-      "summary": "Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals. Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights."
+      "summary": ["Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals.", "Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights."]
     },
     {
       "name": "Department of Robotics and Mechatronics Engineering, University of Dhaka",
@@ -53,7 +53,7 @@
       "url": "https://du.ac.bd/body/RME",
       "startDate": "Jan 2023",
       "endDate": "Dec 2023",
-      "summary": "Designed and implemented a novel architecture for BdSL translation, establishing the first benchmark in this low-resource language domain. Authored a manuscript detailing innovative methodology and findings, currently under review."
+      "summary": ["Designed and implemented a novel architecture for BdSL translation, establishing the first benchmark in this low-resource language domain.", "Authored a manuscript detailing innovative methodology and findings, currently under review."]
     }
 
   ],
@@ -127,24 +127,25 @@
       "organization": "IEEE Women In Engineering",
       "position": "Speaker : Dui Prishthar Bisheshoggo",
       "startDate": "Dec 2023",
-      "highlights": ["Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions."]
+      "endDate": "",
+      "summary": "Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions."
     }
   ]
   
   ,
   "publications": [
     {
-      "name": "",
+      "name": "Bornil : An open-source sign language data crowdsourcing platform for AI enabled dialect-agnostic communication",
       "publisher": "",
-      "releaseDate": "1905-06-30",
-      "url": "",
+      "releaseDate": "",
+      "url": "https://arxiv.org/pdf/2308.15402",
       "summary": ""
     },
     {
-      "name": "",
+      "name": "Classical machine learning approach for human activity recognition using location data",
       "publisher": "",
-      "releaseDate": "1905-03-18",
-      "url": "",
+      "releaseDate": "",
+      "url": "https://drive.google.com/file/d/1CTibZFmd1tanoba6Kqa6fUNvB12LjTvX/view?usp=sharing",
       "summary": ""
     }
   ],
@@ -174,17 +175,12 @@
       "url": "https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning"
     },
     {
-      "name": "",
+      "name": "Human Activity Recognition Using Location Data",
       "summary": "Developed a classification model using location data with statistical feature extraction and a Random Forest classifier to identify 8 different activities and modes of locomotion, achieving a validation accuracy of 78.138% and a weighted F1 score of 78.28%, ranking 11th best result in the dataset.",
-      "highlights": [],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01"
-    }
-  ]
-  ,
-  "skills": [
-    {
-      "name": "Physics"
+      "highlights": ["Machine Learning"],
+      "startDate": "Apr 2021",
+      "endDate": "Jun 2021",
+      "url" : "https://github.com/rabeya-akter/Sussex-Huawei-Locomotion-Challenge-2021"
     }
   ],
   "languages": [
