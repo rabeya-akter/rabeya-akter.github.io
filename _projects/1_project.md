@@ -12,13 +12,14 @@ Developed SignFormer-GCN, a novel architecture combining transformer and STGCN t
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/signformer.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-   Methodology overview of the project.
+   (A)An overview of our two-stream fusion methodology, SignFormer-GCN, for sign language translation. The methodology fused rgb feature processed by transformer encoder and keypoint feature processed by STGCN-LSTM encoder and passed the fused output to a transformer decoder for final translation., (B) An overview of transformer encoder., (C) An overview of STGCN-LSTM encoder.
 </div>
 
 
-Project Demo: [Demo](https://drive.google.com/drive/folders/1ykrF3_4a9QtSUaAGZxTbI6ATz6IoftSe)
+Project Demo : [Demo](https://drive.google.com/drive/folders/1ykrF3_4a9QtSUaAGZxTbI6ATz6IoftSe)
+GitHub Repo : [Code](https://github.com/rabeya-akter/SignLanguageTranslation) 
 

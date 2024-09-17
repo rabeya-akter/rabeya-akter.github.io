@@ -19,6 +19,8 @@ social: true # includes social icons at the bottom of the page
 ---
 
 
+
+
 Hello! 
 
 I am currently working as an **Associate Software Engineer, QA** at [Therap (BD) Ltd.](https://therapbd.com/), where I lead the quality assurance efforts for various Machine Learning systems implementation. My research interests are at the intersection of **Natural Language Processing** and **Computer Vision**, with a particular focus on **low-resourced domains**.

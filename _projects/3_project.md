@@ -20,3 +20,5 @@ Developed a classification model using location data with statistical feature ex
 <div class="caption">
     Methodology overview of the project
 </div>
+
+GitHub Repo : [Code](https://github.com/rabeya-akter/Sussex-Huawei-Locomotion-Challenge-2021)
