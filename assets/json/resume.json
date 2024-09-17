@@ -23,7 +23,7 @@
       "location": "Dhaka, Bangladesh",
       "url": "https://du.ac.bd/body/RME",
       "area": "Robotics and Mechatronics Engineering",
-      "studyType": "B.Sc.",
+      "studyType": "Bachelor of Science",
       "startDate": "Jan 2019",
       "endDate": "Mar 2024",
       "score": "10",
@@ -96,7 +96,7 @@
     {
       "title": "Dhaka Board Talent Pool Scholarship, Higher Secondary Certificate Examination",
       "date": "2018",
-      "awarder": "Bangladesh Government's Ministry of Education Scholarship",
+      "awarder": "Bangladesh Government's Ministry of Education",
       "url" : "",
       "summary": ""
     }
@@ -127,7 +127,7 @@
       "organization": "IEEE Women In Engineering",
       "position": "Speaker : Dui Prishthar Bisheshoggo",
       "startDate": "Dec 2023",
-      "endDate": "",
+      "endDate": "Dec 2023",
       "summary": "Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions."
     }
   ]
@@ -137,14 +137,14 @@
     {
       "name": "Bornil : An open-source sign language data crowdsourcing platform for AI enabled dialect-agnostic communication",
       "publisher": "",
-      "releaseDate": "",
+      "releaseDate": "2023-08-29",
       "url": "https://arxiv.org/pdf/2308.15402",
       "summary": ""
     },
     {
       "name": "Classical machine learning approach for human activity recognition using location data",
-      "publisher": "",
-      "releaseDate": "",
+      "publisher": "UbiComp/ISWC '21 Adjunct: Adjunct Proceedings of the 2021 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2021 ACM International Symposium on Wearable Computers",
+      "releaseDate": "2021-09-24",
       "url": "https://drive.google.com/file/d/1CTibZFmd1tanoba6Kqa6fUNvB12LjTvX/view?usp=sharing",
       "summary": ""
     }
