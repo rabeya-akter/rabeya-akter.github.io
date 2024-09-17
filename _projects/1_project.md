@@ -21,5 +21,6 @@ Developed SignFormer-GCN, a novel architecture combining transformer and STGCN t
 
 
 Project Demo : [Demo](https://drive.google.com/drive/folders/1ykrF3_4a9QtSUaAGZxTbI6ATz6IoftSe)
+
 GitHub Repo : [Code](https://github.com/rabeya-akter/SignLanguageTranslation) 
 
