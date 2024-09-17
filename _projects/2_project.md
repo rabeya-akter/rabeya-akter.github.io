@@ -2,7 +2,7 @@
 layout: page
 title: Automated Stock Trading Using Approximate Q Learning 
 description: Reinforcement Learning
-img: assets/img/3.jpg
+img: 
 importance: 2
 category: work
 ---
