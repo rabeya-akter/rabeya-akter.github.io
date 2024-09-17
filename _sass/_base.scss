@@ -170,7 +170,7 @@ ul.task-list input[type="checkbox"] {
   background-color: var(--global-card-bg-color);
 
   .card-img {
-    width: 100%;
+    width: 50%;
     padding-top: 1.25rem;
   }
 
@@ -196,7 +196,7 @@ ul.task-list input[type="checkbox"] {
   .img {
     width: fit-content;
     height: fit-content;
-    border-radius: 50%;
+    border-radius: 10%;
   }
 
   .more-info {
@@ -636,7 +636,7 @@ footer.sticky-bottom {
 
   .card {
     img {
-      width: 100%;
+      width: 20%;
     }
   }
 
