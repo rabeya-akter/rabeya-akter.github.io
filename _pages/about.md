@@ -27,6 +27,6 @@ I am currently working as an **Associate Software Engineer, QA** at [Therap (BD)
 
 Before joining here at Therap (BD) Ltd.,
 - I worked as a **Data Science Intern** at [Pathao Limited](https://pathao.com/bn/), where I developed key performance indicators (KPIs) and metrics to track the brand health of [Pathao Courier](https://pathao.com/courier/), helping the team make smarter, data-driven decisions about the product.
-- I worked under [Dr. Sejuti Rahman](https://www.du.ac.bd/index.php/faculty/faculty_details/RME/2150) as a **Undergraduate Research Assitant** to design and implement a novel architecture for Bangla Sign Language (BdSL) translation, setting the first benchmark in this field.
+- I worked under [Dr. Sejuti Rahman](https://www.du.ac.bd/index.php/faculty/faculty_details/RME/2150) as a **Undergraduate Research Assistant** to design and implement a novel architecture for Bangla Sign Language (BdSL) translation, setting the first benchmark in this field.
 
 Feel free to drop me an email if you'd like to connect! (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠) 
