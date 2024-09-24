@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Human Activity Recognition Using Location Data
-description: Machine Learning
+description: Sussex-Huawei Locomotion Challenge 2021
 img: 
 redirect:
-importance: 3
-category: work
+importance: 1
+category: Competitions
 ---
 
 

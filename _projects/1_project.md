@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Continuous Sign Language Translation
-description: Natural Language Processing and Computer Vision
+description: RME 4200 - Project
 img: 
 importance: 1
-category: work
+category: Course Projects
 ---
 
 

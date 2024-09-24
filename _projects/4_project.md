@@ -1,10 +1,10 @@
 ---
 layout: page
 title: A Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States
-description: Human Robot Interaction
+description: RME 4211 - Human Robot Interaction Lab
 img:
 importance: 3
-category: fun
+category: Course Projects
 ---
    
 

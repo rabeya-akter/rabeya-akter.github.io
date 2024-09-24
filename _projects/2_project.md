@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Automated Stock Trading Using Approximate Q Learning 
-description: Reinforcement Learning
+description: RME 4231:Introduction to Machine Learning Lab
 img: 
 importance: 2
-category: work
+category: Course Projects
 ---
 
 
