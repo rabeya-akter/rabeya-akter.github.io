@@ -6,7 +6,7 @@ description:
 nav: true
 nav_order: 3
 display_categories: [Course Projects, Competitions]
-horizontal: true
+horizontal: false
 ---
 
 <!-- pages/projects.md -->
