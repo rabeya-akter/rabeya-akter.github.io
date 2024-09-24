@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Continuous Sign Language Translation
-description: RME 4200 - Project
-img: 
+description: RME 4200 : Project
+img: project_1.png
 importance: 1
 category: Course Projects
 ---
