@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automated Stock Trading Using Approximate Q Learning 
-description: RME 4231 : Introduction to Machine Learning Lab
+description: RME 4231 - Introduction to Machine Learning Lab
 img: assets/img/project_2.png
 importance: 2
 category: Course Projects
