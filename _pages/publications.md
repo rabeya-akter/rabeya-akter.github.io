@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
-description:
+title: Research Experience
+description: 
 nav: true
 nav_order: 2
 ---
