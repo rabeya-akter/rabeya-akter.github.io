@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-01-24
+date: 2025-02-14
 inline: true
 related_posts: false
 ---
 
-Defended my B.Sc. final thesis/project.
+My paper titled "SignFormer-GCN: Continuous sign language translation using spatio-temporal graph convolutional networks" got published in PLOS One.

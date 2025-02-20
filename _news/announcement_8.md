@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2021-09-24
+date: 2023-02-21
 inline: true
 related_posts: false
 ---
 
+Participated in the 2nd International Workshop on Computational Linguistics and Bangla Language Processing.
 
-My first paper titled "Classical Machine Learning Approach for Human Activity Recognition Using Location Data" got published.

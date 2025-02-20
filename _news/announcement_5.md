@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2021-09-26
+date: 2024-01-10 
 inline: true
 related_posts: false
 ---
 
-Presented a poster on human activity recognition using location data in UbiComp / ISWC Conference 2021.
+Joined Pathao Limited as a Data Science Intern in the Data Science, Analytics and Insights Team. 

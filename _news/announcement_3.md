@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-01-10 
+date: 2024-04-01 
 inline: true
 related_posts: false
 ---
 
-Joined Pathao Limited as a Data Science Intern in the Data Science, Analytics and Insights Team. 
+Joined Therap (BD) Ltd. as an Associate Software Engineer, QA in the Machine Learning Team. 

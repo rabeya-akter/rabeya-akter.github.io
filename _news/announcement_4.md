@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-03-18
+date: 2024-01-24
 inline: true
 related_posts: false
 ---
 
-Graduated from the department of Robotics & Mechatronics Engineering, University of Dhaka.
+Defended my B.Sc. final thesis/project.
