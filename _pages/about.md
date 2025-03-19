@@ -29,6 +29,5 @@ Before joining here at Therap (BD) Ltd.,
 - I worked under [Dr. Sejuti Rahman](https://www.du.ac.bd/index.php/faculty/faculty_details/RME/2150) as an **Undergraduate Research Assistant** and worked at the intersection of **Natural Language Processing** and **Computer Vision** to design and implement a novel architecture for Bangla Sign Language (BdSL) translation, setting the first benchmark in this field.
 - I worked as a **Data Science Intern** at [Pathao Limited](https://pathao.com/bn/), where I developed key performance indicators (KPIs) and metrics to track the brand health of [Pathao Courier](https://pathao.com/courier/), helping the team make smarter, data-driven decisions about the product.
 
-My research interests : Natural Language Processing, Multimodal Learning, Low-resource Learning, Large Language Models (LLMs), Vision Language Models (VLMs)
 
 Feel free to drop me an email if you'd like to connect! (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠) 
