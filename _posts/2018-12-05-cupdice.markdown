@@ -2,7 +2,7 @@
 layout: post
 title:  "Classical machine learning approach for human activity recognition using location data"
 date:   2021-09-24
-image: /images/pairwise.png
+image: images\SHL.png
 categories: research-completed
 author: "Rabeya Akter"
 authors: "Safaeid Hossain Arib, <strong>Rabeya Akter</strong>, Sejuti Rahman, Shafin Rahman"
