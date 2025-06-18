@@ -2,12 +2,12 @@
 layout: post
 title:  "SignFormer-GCN : Continuous Sign Language Translation Using Spatio-Temporal Graph Convolutional Networks"
 date:   2025-02-14
-image: /images/pairwise.png
+image: \images\sign_language.PNG
 categories: research-completed
 author: "Rabeya Akter"
 authors: "Safaeid Hossain Arib, <strong>Rabeya Akter</strong>, Sejuti Rahman, Shafin Rahman"
 venue: "PLOS One"
-arxiv: https://arxiv.org/abs/2308.04571
-code: 
+arxiv: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316298&?utm_id=plos111&utm_source=internal&utm_medium=email&utm_campaign=author
+code: https://github.com/rabeya-akter/SignLanguageTranslation
 ---
-We show how to perform efficient black-box optimization of algorithm configuration from user preferences. Results include Intel RealSense stereo cameras and a robot social navigation policy.
+Abstract: Sign language is a complex visual language system that uses hand gestures, facial expressions, and body movements to convey meaning. It is the primary means of communication for millions of deaf and hard-of-hearing individuals worldwide. Tracking physical actions, such as hand movements and arm orientation, alongside expressive actions, including facial expressions, mouth movements, eye movements, eyebrow gestures, head movements, and body postures, using only RGB features can be limiting due to discrepancies in backgrounds and signers across different datasets. Despite this limitation, most Sign Language Translation (SLT) research relies solely on RGB features. We used keypoint features, and RGB features to capture better the pose and configuration of body parts involved in sign language actions and complement the RGB features. Similarly, most works on SLT research have used transformers, which are good at capturing broader, high-level context and focusing on the most relevant video frames. Still, the inherent graph structure associated with sign language is neglected and fails to capture low-level details. To solve this, we used a joint encoding technique using a transformer and STGCN architecture to capture the context of sign language expressions and spatial and temporal dependencies on skeleton graphs. Our method, SignFormer-GCN, achieves competitive performance in RWTH-PHOENIX-2014T, How2Sign, and BornilDB v1.0 datasets experimentally, showcasing its effectiveness in enhancing translation accuracy through different sign languages. The code is available at the following link: https://github.com/rabeya-akter/SignLanguageTranslation.
