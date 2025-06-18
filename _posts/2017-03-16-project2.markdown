@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "A Comprehensive Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States"
+date:   2018-05-15 21:21:53 +00:00
+image: /images/intro.jpg
+categories: course-project
+course: " RME 4211 (Human Robot Interaction Lab)"
+code: https://github.com/rabeya-akter/HRI-Project---Emotional-Support-by-NAO-Robot
+demo1: https://www.youtube.com/watch?v=ssw4qzzGjA8
+demo2: https://youtu.be/w5L0kWvJ2N8
+demo3: https://youtu.be/Y1V9DRkVTuw
+
+---
+Conducted a comparative analysis of emotional support delivery by NAO robot and humans across 3 emotional
+states, developing a system and questionnaire to quantify emotional impact, comfort levels, communication clarity,
+and overall satisfaction, with the goal of assessing the efficacy of robotic versus human emotional support and
+identifying areas for improvement.

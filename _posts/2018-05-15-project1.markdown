@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Automated Stock Trading Using Approximate Q Learning"
+date:   2018-05-15 21:21:53 +00:00
+image: /images/intro.jpg
+categories: course-project
+course: " RME 3211 (Intelligent Systems and Robotics Lab)"
+code: https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning
+
+---
+Developed an automated stock trading system using approximate Q-learning to optimize buy, sell, and hold
+decisions for three Bangladeshi stocks, achieving an 11% return on investment and demonstrating the effectiveness
+of reinforcement learning in financial decision-making.
