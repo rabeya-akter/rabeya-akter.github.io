@@ -3,7 +3,7 @@ layout: post
 title:  "SignFormer-GCN : Continuous Sign Language Translation Using Spatio-Temporal Graph Convolutional Networks"
 date:   2025-02-14
 image: /images/pairwise.png
-categories: research
+categories: research-completed
 author: "Rabeya Akter"
 authors: "Safaeid Hossain Arib, <strong>Rabeya Akter</strong>, Sejuti Rahman, Shafin Rahman"
 venue: "PLOS One"
