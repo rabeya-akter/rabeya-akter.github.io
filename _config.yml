@@ -9,7 +9,7 @@ name: Rabeya Akter
 # description: the profile of an engineer, researcher and software developer
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: images/circle_bw_crop.jpg
+avatar: images\rabeya-akter.jpg
 
 #
 # Flags below are optional
@@ -18,7 +18,7 @@ avatar: images/circle_bw_crop.jpg
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email: lkeselman@gmail.com
+  email: rabeyaakter231023@gmail.com
   facebook:
   flickr:
   github: rabeya-akter
