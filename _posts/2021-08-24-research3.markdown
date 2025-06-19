@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Bornil : An open-source sign language data crowdsourcing platform for AI enabled dialect-agnostic communication"
+image: images\SHL.png
+categories: research-completed
+author: "Rabeya Akter"
+authors: "Shahriar Elahi Dhruvo, Mohammad Akhlaqur Rahman, Manash Kumar Mandal, Md Istiak Hossain Shihab, A. A. Ansary, Kaneez Fatema Shithi, Sanjida Khanom, <strong>Rabeya Akter</strong>, Safaeid Hossain Arib, M.N. Ansary, Sazia Mehnaz, Rezwana Sultana, Sejuti Rahman, Sayma Sultana Chowdhury, Sabbir Ahmed Chowdhury, Farig Sadeque, Asif Sushmit"
+arxiv: https://arxiv.org/pdf/2308.15402
+---
+Abstract:  The absence of annotated sign language datasets has hindered the development of sign language recognition and translation technologies. In this paper, we introduce Bornil; a crowdsource-friendly, multilingual sign language data collection, annotation, and validation platform. Bornil allows users to record sign language gestures and lets annotators per
+form sentence and gloss-level annotation. It also allows validators to make sure of the quality of both the recorded videos and the annotations through manual validation to develop high-quality datasets for deep learning based Automatic Sign Language Recognition. To demonstrate the system’s efficacy; we collected the largest sign language dataset for Bangladeshi Sign Language dialect, perform deep learning based Sign Language Recognition modeling, and report the benchmark performance. The Bornil platform, BornilDB v1.0 Dataset, and the codebases are available on https://bornil.bengali.ai.
