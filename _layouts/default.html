@@ -70,6 +70,45 @@
           </tr>
         </table>
 
+
+        <!-- Completed Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Completed</h2>
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          {% for post in site.posts %}
+            {% if post.categories contains 'research-completed' %}
+            <tr>
+              <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              </td>
+              <td style="padding:2.5%;width:75%;vertical-align:middle">
+                <h3 style="color:blue;">{{post.title}}</h3>
+                <br>
+                {{post.authors}}<br>
+                <em>{{post.venue}}</em>, <br>
+
+                {% if post.arxiv %}<a href="{{post.arxiv}}">arxiv</a> / {% endif %}
+                {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
+                {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
+                {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
+                {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+                {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
+                {% if post.youtube %}<a href="{{post.youtube}}">youtube</a> / {% endif %}
+
+                <p></p>
+                {{ post.excerpt }}
+              </td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+
         <!-- Ongoing Section -->
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
           <tr>
@@ -108,46 +147,6 @@
             {% endif %}
           {% endfor %}
                 </table>
-
-        <!-- Completed Section -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Completed</h2>
-            </td>
-          </tr>
-        </table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
-          {% for post in site.posts %}
-            {% if post.categories contains 'research-completed' %}
-            <tr>
-              <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-              </td>
-              <td style="padding:2.5%;width:75%;vertical-align:middle">
-                <h3 style="color:blue;">{{post.title}}</h3>
-                <br>
-                {{post.authors}}<br>
-                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-
-                {% if post.arxiv %}<a href="{{post.arxiv}}">arxiv</a> / {% endif %}
-                {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
-                {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
-                {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
-                {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
-                {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
-                {% if post.youtube %}<a href="{{post.youtube}}">youtube</a> / {% endif %}
-
-                <p></p>
-                {{ post.excerpt }}
-              </td>
-            </tr>
-            {% endif %}
-          {% endfor %}
-        </table>
-
-
 
 
 
