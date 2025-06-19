@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Automated Stock Trading Using Approximate Q Learning"
-image: \images\stock.png
+image: images\stock.png
 categories: course-project
-course: " RME 3211 (Intelligent Systems and Robotics Lab)"
+course: "RME 3211 (Intelligent Systems and Robotics Lab)"
 code: https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning
 
 ---
