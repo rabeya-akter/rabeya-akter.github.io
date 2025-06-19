@@ -63,6 +63,9 @@
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h1 style="text-align: center;">Research</h1>
+              <p>
+                I'm interested in computer vision, machine learning, optimization, graphics and robotics.
+              </p>
             </td>
           </tr>
         </table>
@@ -72,9 +75,7 @@
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Ongoing</h2>
-              <p>
-                I'm interested in computer vision, machine learning, optimization, graphics and robotics.
-              </p>
+              
             </td>
           </tr>
         </table>
@@ -84,7 +85,7 @@
             {% if post.categories contains 'research-ongoing' %}
             <tr>
               <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-                <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
               </td>
               <td style="padding:2.5%;width:75%;vertical-align:middle">
                 <h3>{{post.title}}</h3>
@@ -122,10 +123,10 @@
             {% if post.categories contains 'research-completed' %}
             <tr>
               <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-                <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
               </td>
               <td style="padding:2.5%;width:75%;vertical-align:middle">
-                <h3>{{post.title}}</h3>
+                <h3 style="color:blue;">{{post.title}}</h3>
                 <br>
                 {{post.authors}}<br>
                 <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
@@ -181,7 +182,7 @@
               {% if post.categories contains 'competition' %}
               <tr>
                 <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-                  <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                  <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
                 </td>
                 <td style="padding:2.5%;width:75%;vertical-align:middle">
                   <h3>{{post.title}}</h3>
@@ -274,7 +275,7 @@
         Dhaka, Bangladesh<br>
         - <strong>CGPA:</strong> 3.75/4.00 <em>(Final Year: /4.00)</em><br>
         <br>
-        -<strong>Final Year Project:</strong> : Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph [Presentation](https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1){:target="_blank"}
+        -<strong>Final Year Project:</strong> : Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph <a href="https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1" target="_blank" style="color:blue;">Presentation</a><br>
         <br>
         - <strong>Notable Courses:</strong> Artificial Intelligence, Introduction to Machine Learning, Digital Image Processing and Robot Vision, Digital Signal Processing, 
         Introduction to Robotics, Advanced Robotics, Intelligent Systems and Robotics, Human Robot Interaction,
