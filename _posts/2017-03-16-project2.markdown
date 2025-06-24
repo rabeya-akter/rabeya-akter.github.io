@@ -3,7 +3,7 @@ layout: post
 title:  "A Comprehensive Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States"
 image: images\nao.png
 categories: course-project
-course: " RME 4211 (Human Robot Interaction Lab)"
+course: "RME 4211 (Human Robot Interaction Lab)"
 code: https://github.com/rabeya-akter/HRI-Project---Emotional-Support-by-NAO-Robot
 demo1: https://www.youtube.com/watch?v=ssw4qzzGjA8
 demo2: https://youtu.be/w5L0kWvJ2N8
