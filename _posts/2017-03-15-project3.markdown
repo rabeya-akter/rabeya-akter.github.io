@@ -1,11 +1,17 @@
 ---
 layout: post
+<<<<<<< HEAD
 title:  "A Comprehensive Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States"
 image: 
 categories: course-project
 course: " RME 4211 (Human Robot Interaction Lab)"
 code: https://github.com/rabeya-akter/HRI-Project---Emotional-Support-by-NAO-Robot
 demo: https://www.youtube.com/watch?v=ssw4qzzGjA8
+=======
+title:  "Project HeatAlert: Predicting Heatwaves in Dhaka"
+image: 
+categories: course-personal
+>>>>>>> update
 
 ---
 
