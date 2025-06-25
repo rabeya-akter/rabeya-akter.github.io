@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Emotion-Aware Interactive Communication with Contextual Action Inference and Trust Evaluation for Human-Robot Interaction using LLMs"
+image: images\pepper.png
+categories: research-ongoing
+author: "Rabeya Akter"
+authors: Tahsin Tariq Banna, Rabeya Akter, Sejuti Rahman, Mohammad Tareq
+---
+This project explores enhanced human-robot interaction (HRI) by integrating real-time facial emotion recognition and contextual action inference using Large Language Models (LLMs). The system dynamically interprets user emotions and situational context to generate appropriate robot responses. Additionally, it incorporates trust evaluation metrics to assess and adapt to human trust levels, enabling more natural, adaptive, and reliable interactions between humans and robots.
