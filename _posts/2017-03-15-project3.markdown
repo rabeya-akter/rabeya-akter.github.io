@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "Project HeatAlert: Predicting Heatwaves in Dhaka"
-image: 
+image: /images/Dhaka-city.png
 categories: course-personal
 
 ---
 
+This project aims to develop a machine learning-based system to forecast heatwave events in Dhaka city using historical weather data. By analyzing patterns in temperature, humidity, and other meteorological indicators, the model provides early warnings to help mitigate the impact of extreme heat on public health and urban infrastructure.

@@ -22,10 +22,103 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+
+
+
+  <style>
+    /* Style for the navigation bar */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      /* font-family: Arial, sans-serif; */
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      left: 0;
+      right: 0;
+      display: flex;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .navbar button {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      background-color: #333;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin: none;
+
+    }
+
+    .navbar button:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    body {
+      padding-top: 50px;
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".navbar button");
+      buttons.forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("data-target");
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 50, // Adjust for fixed navbar height
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+
+
+
+
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+
+
+
+<div class="navbar">
+    <div class="navbar-container">
+      <button data-target="about">About</a>
+        <button data-target="research">Research Experience</a>
+          <button data-target="projects">Projects</a>
+            <button data-target="education">Education</a>
+              <button data-target="work">Work Experience</a>
+                <button data-target="awards">Awards and Scholarships</a>
+                  <button data-target="leadership">Leadership</a>
+                
+    </div>
+
+
+
+
+
+  <table id="about" style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tr style="padding:0px">
       <td style="padding:0px">
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -56,7 +149,7 @@
 
 
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h1 style="text-align: center;">Research</h1>
@@ -154,7 +247,7 @@
           <br>
 
           <!-- Projects Header -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          <table id="projects" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
             <tr>
               <td style="padding:2.5%;width:100%;vertical-align:middle">
                 <h1 style="text-align: center;">Projects</h1>
@@ -254,7 +347,7 @@
 <br>
 
 <!-- Education Header -->
-<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+<table id="education" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
   <tr>
     <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Education</h1>
@@ -323,7 +416,7 @@
 <br>
 
 <!-- Experience Header -->
-<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+<table id="work" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
   <tr>
     <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Experience</h1>
@@ -390,7 +483,7 @@
 <br>
 
 <!-- Awards and Scholarships Header -->
-<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+<table id="awards" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
   <tr>
     <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Awards and Scholarships</h1>
@@ -461,7 +554,7 @@
 <br>
 
 <!-- Leadership/Volunteer Activities Header -->
-<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+<table id="leadership" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
   <tr>
     <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Volunteer Activities</h1>
