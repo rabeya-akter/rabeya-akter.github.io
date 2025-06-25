@@ -8,57 +8,58 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-E00L9PT3V9');
   </script>
-  
-  <title>Rabeya Akter - Portfolio</title>
+  <title>{{ site.name }}</title>
+
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <meta name="author" content="Rabeya Akter" />
+
+  <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <style>
-    body {
-      font-family: 'Lato', Arial, sans-serif;
-      margin: 0;
-      padding-top: 60px;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      color: #333;
-    }
 
-    /* Navigation Bar Styles */
+
+
+  <style>
+    /* Style for the navigation bar */
     .navbar {
       overflow: hidden;
       background-color: #333;
+      /* font-family: Arial, sans-serif; */
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
+      left: 0;
+      right: 0;
       display: flex;
-      justify-content: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .navbar-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      margin: 0 auto;
       max-width: 800px;
-      width: 100%;
     }
 
     .navbar button {
+      float: left;
       display: block;
       color: #f2f2f2;
       background-color: #333;
       text-align: center;
-      padding: 16px 20px;
+      padding: 14px 16px;
       text-decoration: none;
       border: none;
       cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s;
+      margin: none;
+
     }
 
     .navbar button:hover {
@@ -66,157 +67,9 @@
       color: black;
     }
 
-    /* Content Styles */
-    .content-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .section {
-      margin-bottom: 60px;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: #333;
-    }
-
-    h2 {
-      font-size: 1.8em;
-      margin-top: 2em;
-      margin-bottom: 1em;
-      color: #444;
-    }
-
-    h3 {
-      font-size: 1.3em;
-      margin-bottom: 0.5em;
-      color: #555;
-    }
-
-    .profile-section {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .profile-text {
-      flex: 2;
-    }
-
-    .profile-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .profile-image img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #f0f0f0;
-    }
-
-    .links {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .links a {
-      color: #0066cc;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    .research-item, .project-item, .experience-item {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-    }
-
-    .item-image {
-      flex: 0 0 150px;
-    }
-
-    .item-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-    }
-
-    .item-content {
-      flex: 1;
-    }
-
-    .item-content h3 {
-      color: #0066cc;
-      margin-top: 0;
-    }
-
-    .item-links a {
-      color: #0066cc;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
-    .item-links a:hover {
-      text-decoration: underline;
-    }
-
-    .education-item, .award-item {
-      margin-bottom: 25px;
-      padding: 15px;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-    }
-
-    .date {
-      color: #28a745;
-      font-weight: bold;
-    }
-
-    .institution {
-      color: #0066cc;
-      font-weight: bold;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    @media (max-width: 768px) {
-      .navbar button {
-        padding: 12px 8px;
-        font-size: 12px;
-      }
-
-      .profile-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .research-item, .project-item, .experience-item {
-        flex-direction: column;
-      }
-
-      .item-image {
-        flex: none;
-        text-align: center;
-      }
+    body {
+      padding-top: 50px;
+      scroll-behavior: smooth;
     }
   </style>
 
@@ -230,7 +83,7 @@
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 70,
+              top: targetElement.offsetTop - 50, // Adjust for fixed navbar height
               behavior: "smooth"
             });
           }
@@ -238,260 +91,540 @@
       });
     });
   </script>
+
+
+
+
+
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <div class="navbar">
+
+
+
+<div class="navbar">
     <div class="navbar-container">
-      <button data-target="about">About</button>
-      <button data-target="research">Research</button>
-      <button data-target="projects">Projects</button>
-      <button data-target="education">Education</button>
-      <button data-target="work">Experience</button>
-      <button data-target="awards">Awards</button>
-      <button data-target="leadership">Leadership</button>
-    </div>
-  </div>
+      <button data-target="about">About</a>
+arget="research">Research Experience</a>
+          <button data-target="projects">Projects</a>
+            <button data-target="education">Education</a>
+              <button data-target="work">Work Experience</a>
+                <button data-target="awards">Awards and Scholarships</a>
+                  <button data-target="leadership">Leadership</a>
+                
+    </divid="research"  >
 
-  <div class="content-container">
-    <!-- About Section -->
-    <section id="about" class="section">
-      <div class="profile-section">
-        <div class="profile-text">
-          <h1>Rabeya Akter</h1>
-          <p>Hello, I am Rabeya Akter.</p>
-          <p>I am currently working as a Research Assistant under the supervision of <a href="https://scholar.google.com/citations?user=j8XhiIEAAAAJ&hl=en&oi=ao">Dr. Sejuti Rahman</a>, focusing on developing a personalized human-robot interaction system driven by human emotion. I am also pursuing my M.Sc. in the <a href="https://rme.du.ac.bd/">Department of Robotics and Mechatronics Engineering, University of Dhaka.</a></p>
-          <p>Previously, I worked at Therap BD Ltd. as an Associate Software Engineer (QA), where I led quality assurance efforts for several machine learning systems. I also interned at Pathao Limited, where I worked on data science projects.</p>
-          <p>I hold a B.Sc. in Robotics and Mechatronics Engineering from the <a href="https://rme.du.ac.bd/">University of Dhaka</a>. During my undergraduate studies, I worked as a research assistant with <a href="https://scholar.google.com/citations?user=j8XhiIEAAAAJ&hl=en&oi=ao">Dr. Sejuti Rahman</a>, where I developed a continuous sign language translation system that achieved competitive performance.</p>
-        </div>
-        <div class="profile-image">
-          <img src="images/rabeya-akter.jpg" alt="Rabeya Akter" />
-        </div>
-      </div>
-      <div class="links">
-        <a href="mailto:rabeyaakter231023@gmail.com">Email</a>
-        <a href="https://github.com/rabeya-akter">GitHub</a>
-        <a href="https://scholar.google.com/citations?hl=en&user=3XYOK88AAAAJ">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/rabeya-akter-4a3111174/">LinkedIn</a>
-      </div>
-    </section>
 
-    <!-- Research Section -->
-    <section id="research" class="section">
-      <h1 style="text-align: center;">Research</h1>
-      <p style="text-align: center;">I'm interested in natural language processing, computer vision, machine learning, multimodal learning, human-robot interaction and robotics.</p>
-      
-      <h2>Completed</h2>
-      <div class="research-item">
-        <div class="item-image">
-          <!-- Placeholder for research image -->
-          <div style="width: 100%; height: 100px; background-color: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">Research Image</div>
-        </div>
-        <div class="item-content">
-          <h3>Continuous Bangla Sign Language Translation</h3>
-          <p><em>Undergraduate Research Project</em></p>
-          <div class="item-links">
-            <a href="https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1">Presentation</a>
-          </div>
-          <p>Developed a continuous sign language translation system that achieved competitive performance with innovative methodology.</p>
-        </div>
-      </div>
 
-      <h2>Ongoing</h2>
-      <div class="research-item">
-        <div class="item-image">
-          <div style="width: 100%; height: 100px; background-color: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">HRI Image</div>
-        </div>
-        <div class="item-content">
-          <h3>Personality-based Human-Robot Interaction</h3>
-          <p><em>Current Research</em></p>
-          <p>Conducting research on personality-based human-robot interaction by integrating real-time emotional detection to personalize Pepper robot.</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h1 style="text-align: center;">Projects</h1>
-      <p style="text-align: center;">Included here are projects completed as part of coursework, as well as independent personal endeavors.</p>
-      
-      <h2>Course Projects</h2>
-      <div class="project-item">
-        <div class="item-image">
-          <div style="width: 100%; height: 100px; background-color: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">Project Image</div>
-        </div>
-        <div class="item-content">
-          <h3>Sample Course Project</h3>
-          <p><em>Course Name</em></p>
-          <p>Description of the course project and its outcomes.</p>
-        </div>
-      </div>
 
-      <h2>Personal Projects</h2>
-      <div class="project-item">
-        <div class="item-image">
-          <div style="width: 100%; height: 100px; background-color: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">Personal Project</div>
-        </div>
-        <div class="item-content">
-          <h3>Sample Personal Project</h3>
-          <p>Description of personal project and its significance.</p>
-        </div>
-      </div>
-    </section>
+  <table id="about" style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:60%;vertical-align:middle">
+              <h1>
+                Rabeya Akter
+              </h1>
+              <p> Hello, I am Rabeya Akter. </p>
+              <p> I am currently working as a Research Assistant under the supervision of <a href="https://scholar.google.com/citations?user=j8XhiIEAAAAJ&hl=en&oi=ao">Dr. Sejuti Rahman</a>, focusing on developing a personalized human-robot interaction system driven by human emotion. I am also pursuing my M.Sc. in the <a href="https://rme.du.ac.bd/">Department of Robotics and Mechatronics Engineering, University of Dhaka.</a> </p> 
+              <p> Previously, I worked at Therap BD Ltd. as an Associate Software Engineer (QA), where I led quality assurance efforts for several machine learning systems. I also interned at Pathao Limited, where I worked on data science projects. </p> 
+              <p> I hold a B.Sc. in Robotics and Mechatronics Engineering from the <a href="https://rme.du.ac.bd/">University of Dhaka</a>. During my undergraduate studies, I worked as a research assistant with <a href="https://scholar.google.com/citations?user=j8XhiIEAAAAJ&hl=en&oi=ao">Dr. Sejuti Rahman</a>, where I developed a continuous sign language translation system that achieved competitive performance. </p> 
+              
+              <p style="text-align:center">
+                <a href="mailto:rabeyaakter231023@gmail.com">Email</a> &nbsp;/&nbsp;
+                <a href="https://github.com/rabeya-akter">GitHub</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?hl=en&user=3XYOK88AAAAJ">Google Scholar</a> &nbsp;/&nbsp;
+                <a href="https://www.linkedin.com/in/rabeya-akter-4a3111174/"> LinkedIn </a>
+              </p>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <img style="width:70%;max-width:70%" alt="profile photo" src="images\rabeya-akter.jpg">
+            </td>
+          </tr>
+>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
+
+
+
+
+        <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+         id="research"   <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h1 style="text-align: center;">Research</h1>
+              <p style="text-align: center;">
+                I'm interested in natural language processing, computer vision, machine learning, multimodal learning, human-robot interaction and robotics.
+              </p>
+            </td>
+          </tr>
+        </table>
+
+
+        <!-- Completed Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Completed</h2>
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          {% for post in site.posts %}
+            {% if post.categories contains 'research-completed' %}
+            <tr>
+              <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              </td>
+              <td style="padding:2.5%;width:75%;vertical-align:middle">
+                <h3 style="color:blue;">{{post.title}}</h3>
+                <br>
+                {{post.authors}}<br>
+                <em>{{post.venue}}</em>, <br>
+
+                {% if post.arxiv %}<a href="{{post.arxiv}}">arxiv</a> / {% endif %}
+                {% if post.arxiv %}<a href="{{post.paper}}">arxiv</a> / {% endif %}
+                {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
+                {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
+                {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
+                {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+                {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
+                {% if post.youtube %}<a href="{{post.youtube}}">youtube</a> / {% endif %}
+
+                <p></p>
+                {{ post.excerpt }}
+              </td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+
+        <!-- Ongoing Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Ongoing</h2>
+              
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+          {% for post in site.posts %}
+            {% if post.categories contains 'research-ongoing' %}
+            <tr>
+              <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              </td>
+              <td style="padding:2.5%;width:75%;vertical-align:middle">
+                <h3>{{post.title}}</h3>
+                <br>
+                {{post.authors}}<br>
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
+
+                {% if post.arxiv %}<a href="{{post.arxiv}}">arxiv</a> / {% endif %}
+                {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
+                {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
+                {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
+                {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+                {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
+                {% if post.youtube %}<a href="{{post.youtube}}">youtube</a> / {% endif %}
+
+                <p></p>
+                {{ post.excerpt }}
+              </td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+                </table>
+
+
+
+
+          <br>
+          <br>
+          <br>
+
+          <!-- Projects Header -->
+          <table id="projects" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+            <tr>
+              <td style="padding:2.5%;width:100%;vertical-align:middle">
+                <h1 style="text-align: center;">Projects</h1>
+                <p style="text-align: center;">
+                  Included here are projects completed as part of coursework, as well as independent personal endeavors.
+                </p>
+              </td>
+            </tr>
+          </table>
+
+          
+          <!-- Course Projects Section -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+            <tr>
+              <td style="padding:2.5%;width:100%;vertical-align:middle">
+                <h2>Course Projects</h2>
+              </td>
+            </tr>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+            {% for post in site.posts %}
+              {% if post.categories contains 'course-project' %}
+              <tr>
+                <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                  <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                </td>
+                <td style="padding:2.5%;width:75%;vertical-align:middle">
+                  <h3>{{post.title}}</h3>
+                  <br>
+                  <em> {{post.course}}</em><br>
+              
+
+                  {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
+                  {% if post.paper %}<a href="{{post.paper}}">paper</a> / {% endif %}
+                  {% if post.patent %}<a href="{{post.patent}}">patent</a> / {% endif %}
+                  {% if post.patent2 %}<a href="{{post.patent2}}">patent #2</a> / {% endif %}
+                  {% if post.patent3 %}<a href="{{post.patent3}}">patent #3</a> / {% endif %}
+                  {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
+                  {% if post.video2 %}<a href="{{post.video2}}">video #2</a> / {% endif %}
+                  {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
+                  {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
+                  {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+
+                  <p></p>
+                  {{ post.excerpt }}
+                </td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+
+
+
+          <!-- personal project Section -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+            <tr>
+              <td style="padding:2.5%;width:100%;vertical-align:middle">
+                <h2>Personal Projects</h2>
+              </td>
+            </tr>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+            {% for post in site.posts %}
+              {% if post.categories contains 'course-personal' %}
+              <tr>
+                <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                  <img src="/{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                </td>
+                <td style="padding:2.5%;width:75%;vertical-align:middle">
+                  <h3>{{post.title}}</h3>
+                  <br>
+          
+
+                  {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
+                  {% if post.paper %}<a href="{{post.paper}}">paper</a> / {% endif %}
+                  {% if post.patent %}<a href="{{post.patent}}">patent</a> / {% endif %}
+                  {% if post.patent2 %}<a href="{{post.patent2}}">patent #2</a> / {% endif %}
+                  {% if post.patent3 %}<a href="{{post.patent3}}">patent #3</a> / {% endif %}
+                  {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
+                  {% if post.video2 %}<a href="{{post.video2}}">video #2</a> / {% endif %}
+                  {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
+                  {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
+                  {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+
+                  <p></p>
+                  {{ post.excerpt }}
+                </td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+
+
+        <br>
+<br>
+
+<!-- Education Header -->
+<table id="education" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Education</h1>
-      <p style="text-align: center;">Below is a concise summary of my academic background to date.</p>
-      
-      <div class="education-item">
-        <h3><span class="institution">Bachelor of Science in Robotics & Mechatronics Engineering</span> <span class="date">[2019–2024]</span></h3>
-        <p>Department of Robotics & Mechatronics Engineering<br>
-        University of Dhaka, Dhaka, Bangladesh</p>
-        <p><strong>CGPA:</strong> 3.75/4.00 <em>(Final Year: 3.88/4.00)</em></p>
-        <p><strong>Final Year Project:</strong> Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph <a href="https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1">[Presentation]</a></p>
-        <p><strong>Notable Courses:</strong> Artificial Intelligence, Introduction to Machine Learning, Digital Image Processing and Robot Vision, Digital Signal Processing, Introduction to Robotics, Advanced Robotics, Intelligent Systems and Robotics, Human Robot Interaction, Object Oriented Programming, and more.</p>
-      </div>
+      <p style="text-align: center;">
+          Below is a concise summary of my academic background to date.
+      </p>
+    </td>
+  </tr>
+</table>
 
-      <div class="education-item">
-        <h3><span class="institution">Higher Secondary School Certificate (HSC)</span> <span class="date">[2016–2018]</span></h3>
-        <p>Holy Cross College, Dhaka, Bangladesh</p>
-        <p><strong>GPA:</strong> 5.00/5.00</p>
-      </div>
+<!-- Education Content -->
+<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle; font-size:16px;">
+      <p>
+        <strong><span style="color:blue;">■ Bachelor of Science in Robotics & Mechatronics Engineering</span></strong> <span style="color:green;">[2019–2024]</span><br>
+        Department of Robotics & Mechatronics Engineering,<br>
+        University of Dhaka,<br>
+        Dhaka, Bangladesh<br>
+        - <strong>CGPA:</strong> 3.75/4.00   <em>(Final Year: 3.88/4.00)</em><br>
+        <br>
+        -<strong>Final Year Project:</strong> Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph <a href="https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1" target="_blank" style="color:blue;">[Presentation]</a><br>
+        <br>
+        - <strong>Notable Courses:</strong> Artificial Intelligence, Introduction to Machine Learning, Digital Image Processing and Robot Vision, Digital Signal Processing, 
+        Introduction to Robotics, Advanced Robotics, Intelligent Systems and Robotics, Human Robot Interaction,
+        Object Oriented Programming, Fundamentals of Programming, Fundamentals of Computing,  Microcontroller and Programmable Logic Controller, Digital Logic Circuit and Microprocessor, Control System Design,
+        Linear Algebra, Differential and Integral Calculus, Multivariate and Vector Calculus, Differential Equations and Coordinate Geometry, Mathematical Analysis for Engineers, Statistics for Engineers, 
+        Fundamentals of Electrical and Electronics Engineering, Fundamentals of Mechanical Engineering, Fundamentals of Mechatronics Engineering, Advanced Mechatronics Engineering, Industrial Management 
+      </p>
 
-      <div class="education-item">
-        <h3><span class="institution">Secondary School Certificate (SSC)</span> <span class="date">[2006–2016]</span></h3>
-        <p>Jatrabari Ideal High School, Dhaka, Bangladesh</p>
-        <p><strong>GPA:</strong> 5.00/5.00</p>
-      </div>
-    </section>
+      <br>
 
-    <!-- Experience Section -->
-    <section id="work" class="section">
+      <p>
+        <strong><span style="color:blue;">■ Higher Secondary School Certificate (HSC)</span></strong> <span style="color:green;">[2016–2018]</span><br>
+        Holy Cross College,<br>
+        Dhaka, Bangladesh<br>
+        - <strong>GPA:</strong> 5.00/5.00
+      </p>
+
+      <br>
+
+      <p>
+        <strong><span style="color:blue;">■ Secondary School Certificate (SSC)</span></strong> <span style="color:green;">[2006–2016]</span><br>
+        Jatrabari Ideal High School,<br>
+        Dhaka, Bangladesh<br>
+        - <strong>GPA:</strong> 5.00/5.00
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<!-- Experience Header -->
+<table id="work" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Experience</h1>
-      <p style="text-align: center;">I am committed to pursuing a research-driven career, whether in academia or industry. Below are some highlights of my professional experiences so far.</p>
-      
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Research Assistant</span> <span class="date">[June 2025 – Present]</span></h3>
-          <p>Department of Robotics and Mechatronics Engineering, University of Dhaka<br>
-          <strong>Supervisor:</strong> Dr. Sejuti Rahman</p>
-          <p>• Conducting research on personality-based human-robot interaction by integrating real-time emotional detection to personalize Pepper robot.</p>
-        </div>
-      </div>
+      <p style="text-align: center;">
+        I am committed to pursuing a research-driven career, whether in academia or industry. Below are some highlights of my professional experiences so far.
+      </p>
+    </td>
+  </tr>
+</table>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Associate Software Engineer, QA</span> <span class="date">[Apr 2024 – May 2025]</span></h3>
-          <p>Therap (BD) Ltd.<br>
-          <strong>Team:</strong> Machine Learning</p>
-          <p>• Conducted research on Amazon Alexa devices and sound detection systems<br>
-          • Lead quality assurance efforts for the video redaction system<br>
-          • Collaborated with cross-functional teams to identify and resolve complex bugs</p>
-        </div>
-      </div>
+<!-- Experience Content -->
+<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle; font-size:16px;">
+      <p>
+        <strong><span style="color:blue;">■ Research Assistant</span></strong> <span style="color:green;">[June 2025 – Present]</span><br>
+        Department of Robotics and Mechatronics Engineering, University of Dhaka<br>
+        <strong>Supervisor:</strong> Dr. Sejuti Rahman<br>
+        ◦ Conducting research on personality-based human-robot interaction by integrating real-time emotional detection to personalize Pepper robot.
+      </p>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">AIM Intern</span> <span class="date">[Jan 2024 – Mar 2024]</span></h3>
-          <p>Pathao Limited<br>
-          <strong>Team:</strong> Data Science, Analytics & Insights</p>
-          <p>• Developed 5 key performance indicators (KPIs) for brand health measurement<br>
-          • Designed comprehensive questionnaires using data-driven methodologies</p>
-        </div>
-      </div>
+      <br>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Undergraduate Research Assistant</span> <span class="date">[Jan 2023 – Jan 2024]</span></h3>
-          <p>Department of Robotics and Mechatronics Engineering, University of Dhaka<br>
-          <strong>Supervisor:</strong> Dr. Sejuti Rahman</p>
-          <p>• Designed and implemented a novel architecture for BdSL translation<br>
-          • Authored a manuscript published in PLOS One (Q1 Journal)</p>
-        </div>
-      </div>
-    </section>
+      <p>
+        <strong><span style="color:blue;">■ Associate Software Engineer, QA</span></strong> <span style="color:green;">[Apr 2024 – May 2025]</span><br>
+        Therap (BD) Ltd.<br>
+        <strong>Team:</strong> Machine Learning<br>
+        ◦ Conducted research on Amazon Alexa devices and sound detection systems; performed literature review on action recognition datasets and contributed to the design of data collection for action recognition.<br>
+        ◦ Lead quality assurance efforts for the video redaction system to develop and implement comprehensive test plans and cases to validate machine learning algorithms used in video processing.<br>
+        ◦ Collaborated with cross-functional teams to identify and resolve complex bugs, significantly improving system reliability.
+      </p>
 
-    <!-- Awards Section -->
-    <section id="awards" class="section">
+      <br>
+
+      <p>
+        <strong><span style="color:blue;">■ AIM Intern</span></strong> <span style="color:green;">[Jan 2024 – Mar 2024]</span><br>
+        Pathao Limited<br>
+        <strong>Team:</strong> Data Science, Analytics & Insights<br>
+        ◦ Developed 5 key performance indicators (KPIs) and metrics for brand health measurement of Pathao Courier, aligning with company-wide strategic goals.<br>
+        ◦ Designed and implemented comprehensive questionnaires using data-driven methodologies to assess brand health metrics, improving response quality and depth of insights.
+      </p>
+
+      <br>
+
+      <p>
+        <strong><span style="color:blue;">■ Undergraduate Research Assistant</span></strong> <span style="color:green;">[Jan 2023 – Jan 2024]</span><br>
+        Department of Robotics and Mechatronics Engineering, University of Dhaka<br>
+        <strong>Supervisor:</strong> Dr. Sejuti Rahman<br>
+        ◦ Designed and implemented a novel architecture for BdSL translation, establishing the first benchmark in this low-resource language domain.<br>
+        ◦ Authored a manuscript detailing innovative methodology and findings, published in PLOS One (Q1 Journal).
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<!-- Awards and Scholarships Header -->
+<table id="awards" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Awards and Scholarships</h1>
-      <p style="text-align: center;">Over the years, I've been honored with a few recognitions—made possible by the invaluable support of mentors and peers.</p>
-      
-      <h2>Research Grant</h2>
-      <div class="award-item">
-        <h3>Special Innovation Fund</h3>
-        <p>Bangladesh Ministry of Science and Technology (MoST), Fiscal Year 2023–2024<br>
-        <em>Project ID: SRG-232431</em></p>
-      </div>
+      <p style="text-align: center;">
+        Over the years, I’ve been honored with a few recognitions—made possible by the invaluable support of mentors and peers who have greatly influenced my growth.
+      </p>
+    </td>
+  </tr>
+</table>
 
-      <h2>Academic Scholarship</h2>
-      <div class="award-item">
-        <h3>Talent Pool Scholarship</h3>
-        <p>Higher Secondary Certificate Examination 2018<br>
-        <em>Dhaka Education Board</em></p>
-      </div>
+<!-- Awards and Scholarships Content -->
+<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle; font-size:16px;">
 
-      <h2>Hackathons</h2>
-      <div class="award-item">
-        <ul>
-          <li><strong>Honourable Mention</strong>, NASA Earth Observatory (EO) Dashboard Hackathon 2021</li>
-          <li><strong>11th Place</strong>, Sussex-Huawei Locomotion Challenge 2021</li>
-          <li><strong>Second Runner-up</strong>, Ada Lovelace Datathon 2021</li>
-        </ul>
-      </div>
+      <!-- Research Grant -->
+      <h2><span style="color:blue;">■ Research Grant</span></h2>
+      <ul>
+        <li><strong>Special Innovation Fund</strong>, Bangladesh Ministry of Science and Technology (MoST), Fiscal Year 2023–2024<br>
+        <em>Project ID: SRG-232431</em></li>
+      </ul>
 
-      <h2>Others</h2>
-      <div class="award-item">
-        <ul>
-          <li><strong>10th Place</strong>, 3rd Women's Mathematics Olympiad 2019</li>
-          <li><strong>2nd Place</strong>, Pi Day Celebration 2019</li>
-        </ul>
-      </div>
-    </section>
+      <br>
 
-    <!-- Leadership Section -->
-    <section id="leadership" class="section">
+      <!-- Academic Scholarship -->
+      <h2><span style="color:blue;">■ Academic Scholarship</span></h2>
+      <ul>
+        <li><strong>Talent Pool Scholarship</strong>, Higher Secondary Certificate Examination 2018<br>
+        <em>Dhaka Education Board</em></li>
+      </ul>
+
+      <br>
+
+      <!-- Hackathons -->
+      <h2><span style="color:blue;">■ Hackathons</span></h2>
+      <ul>
+        <li><strong>Honourable Mention</strong>, NASA Earth Observatory (EO) Dashboard Hackathon 2021<br>
+        <em>Organized by NASA, ESA, and JAXA</em></li>
+        <li><strong>11th Place</strong>, Sussex-Huawei Locomotion Challenge 2021<br>
+        <em>Organized by University of Sussex and Huawei</em></li>
+        <li><strong>Second Runner-up</strong>, Ada Lovelace Datathon 2021<br>
+        <em>Organized by Bangladesh Open Source Network (BdOSN)</em></li>
+      </ul>
+
+
+      <!-- Others -->
+      <h2><span style="color:blue;">■ Others</span></strong></h2>
+      <ul>
+        <li><strong>10th Place</strong>, 3rd Women’s Mathematics Olympiad 2019<br>
+        <em>Organized by Women’s Mathematics Olympiad Committee & A F Mujibur Rahman Foundation</em></li>
+        <li><strong>2nd Place</strong>, Pi Day Celebration 2019<br>
+        <em>Organized by Department of Mathematics, University of Dhaka</em></li>
+      </ul>
+
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<!-- Leadership/Volunteer Activities Header -->
+<table id="leadership" style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle">
       <h1 style="text-align: center;">Volunteer Activities</h1>
-      <p style="text-align: center;">I dedicate part of my time to serving communities. Here are a few selected contributions.</p>
-      
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Student Activity Secretary</span> <span class="date">[Jan 2023 – Dec 2023]</span></h3>
-          <p>IEEE, University of Dhaka Student Branch</p>
-          <p>• Organized several workshops, interactive sessions, and industry expert experience-sharing sessions.</p>
-        </div>
-      </div>
+      <p style="text-align: center;">I dedicate part of my time to serving communities. Here are a few selected contributions.
+      </p>
+    </td>
+  </tr>
+</table>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Mentor</span> <span class="date">[Jul 2019 – Dec 2020]</span></h3>
-          <p>Bangladesh Robot Olympiad (BdRO)</p>
-          <p>• Conducted robotics workshops in multiple high schools and developed engaging quizzes for BdRO.</p>
-        </div>
-      </div>
+<!-- Leadership/Volunteer Content -->
+<table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin:auto;">
+  <tr>
+    <td style="padding:2.5%; width:100%; vertical-align:middle; font-size:16px;">
+      <p>
+        <strong><span style="color:blue;">■ Student Activity Secretary</span></strong> <em><span style="color:green;">[Jan 2023 – Dec 2023]</span></em><br>
+        IEEE, University of Dhaka Student Branch<br>
+        ◦ Organized several workshops, interactive sessions, and industry expert experience-sharing sessions.
+      </p>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Mentor</span> <span class="date">[Jun 2024 – Sep 2024]</span></h3>
-          <p>Bangladesh Artificial Intelligence Olympiad (BdAIO)</p>
-          <p>• Designed and delivered lessons on classification algorithms and evaluation metrics for high school students.</p>
-        </div>
-      </div>
+      <br>
 
-      <div class="experience-item">
-        <div class="item-content">
-          <h3><span class="institution">Speaker: Dui Prishthar Bisheshoggo</span> <span class="date">[Dec 2023]</span></h3>
-          <p>IEEE Women In Engineering</p>
-          <p>• Delivered a talk on personal experiences in hackathons and datathons, encouraging women's participation in tech competitions.</p>
-        </div>
-      </div>
-    </section>
+      <p>
+        <strong><span style="color:blue;">■Mentor</span></strong> <em><span style="color:green;">[Jul 2019 – Dec 2020]</span></em><br>
+        Bangladesh Robot Olympiad (BdRO)<br>
+        ◦ Conducted robotics workshops in multiple high schools and developed engaging quizzes for BdRO.
+      </p>
 
-    <!-- Visitor Map -->
-    <div style="text-align:center; margin: 40px 0;">
-      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=0e1633&w=a&t=tt&d=RRJTSxkOjsoxATz8wr43SykLWnuBAvDgOxQmzRvf_0s&co=f4f4f4&ct=cdd4d9&cmo=3acc3a&cmn=ff5353'></script>
-    </div>
-  </div>
+      <br>
+
+      <p>
+        <strong><span style="color:blue;">■ Mentor</span></strong> <em><span style="color:green;">[Jun 2024 – Sep 2024]</span></em><br>
+        Bangladesh Artificial Intelligence Olympiad (BdAIO)<br>
+        ◦ Designed and delivered lessons on classification algorithms and evaluation metrics for a group of 10 high school students, and created quizzes to assess their understanding.
+      </p>
+
+      <br>
+
+      <p>
+        <strong><span style="color:blue;">■ Speaker: Dui Prishthar Bisheshoggo</span></strong> <em><span style="color:green;">[Dec 2023]</span></em><br>
+        IEEE Women In Engineering<br>
+        ◦ Delivered a talk on personal experiences in hackathons and datathons, encouraging increased participation of women in tech competitions.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+        <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <div style="text-align:center; max-width:800px; margin:auto;">
+               <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=0e1633&w=a&t=tt&d=RRJTSxkOjsoxATz8wr43SykLWnuBAvDgOxQmzRvf_0s&co=f4f4f4&ct=cdd4d9&cmo=3acc3a&cmn=ff5353'></script></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
+
