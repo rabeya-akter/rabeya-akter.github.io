@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Solving CAPTURe: Advancing Spatial Reasoning and Amodal Counting in Vision-Language Models"
+image: images\Capture.JPG
+categories: research-ongoing
+author: "Rabeya Akter"
+authors: Safaeid Hossain Arib, Rabeya Akter, Abdul Monaf Chowdhury
+---
+We are working on the CAPTURe benchmark(https://arxiv.org/pdf/2504.15485?), which evaluates the ability of vision-language models (VLMs) to perform amodal counting—inferring the number of occluded objects based on visible patterns. This task reflects critical spatial reasoning skills that current VLMs largely lack. My goal is to develop a system that improves counting accuracy under occlusion by enhancing pattern recognition, integrating visual and textual cues, and exploring hybrid approaches such as inpainting pipelines, coordinate extraction, or reasoning modules.
