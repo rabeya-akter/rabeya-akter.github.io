@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Amodal Counting through Prompt-Guided Feature Inpainting"
+image: images\Capture.JPG
+categories: research-ongoing
+author: "Rabeya Akter"
+authors: Safaeid Hossain Arib, <strong>Rabeya Akter</strong>, Abdul Monaf Chowdhury
+---
+Developing a prompt-guided feature-level inpainting module for amodal counting, where user queries guide the inference of abstract representations for occluded objects, which are then reintegrated into the pipeline to enable more complete and robust scene-level object estimation.

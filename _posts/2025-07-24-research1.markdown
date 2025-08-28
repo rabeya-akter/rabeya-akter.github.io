@@ -6,7 +6,7 @@ categories: research-completed
 image: images\time.JPG
 venue: "Submitted in AAAI 2026"
 author: "Rabeya Akter"
-authors: Abdul Monaf Chowdhury, Rabeya Akter, Safaeid Hossain Arib
+authors: Abdul Monaf Chowdhury, <strong>Rabeya Akter</strong>, Safaeid Hossain Arib
 code:  https://github.com/monaf-chowdhury/T3Time
 ---
 Abstract:
