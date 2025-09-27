@@ -7,6 +7,7 @@ image: images\time.JPG
 venue: "Submitted in AAAI 2026"
 author: "Rabeya Akter"
 authors: Abdul Monaf Chowdhury, <strong>Rabeya Akter</strong>, Safaeid Hossain Arib
+arxiv: https://www.arxiv.org/abs/2508.04251
 code:  https://github.com/monaf-chowdhury/T3Time
 ---
 Abstract:
