@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Counting Through Occlusion: Framework for Open World Amodal Counting"
+image: images\Capture.JPG
+categories: research-completed
+venue: Submitted in CVPR 2026
+author: "Rabeya Akter"
+authors: Safaeid Hossain Arib, <strong>Rabeya Akter</strong>, Abdul Monaf Chowdhury, MD Jubair Ahmed Sourov, MD Mehedi Hasan 
+---
+
+Object counting has achieved remarkable success on visible instances, yet state-of-the-art (SOTA) methods fail under occlusion, a pervasive challenge in real-world deployment. This failure stems from a fundamental architectural limitation where backbone networks encode occluding surfaces rather than target objects, thereby corrupting the feature representations required for accurate enumeration. To address this, we present CountOCC, an amodal counting framework that explicitly reconstructs occluded object features through hierarchical multi-modal guidance. Rather than accepting degraded encodings, we synthesize complete representations by integrating spatial context from visible fragments with semantic priors from text-visual embeddings, generating class-discriminative features at occluded locations across multiple pyramid levels. A teacher-student supervision anchors reconstructed features to their unoccluded counterparts, preserving properties essential for accurate counting. For rigorous benchmarking, we establish occlusion-augmented versions of FSC-147 and CARPK spanning both structured and unstructured scenes. Our framework, CountOCC achieves SOTA performance on FSC-147 with a 32.2% MAE reduction over prior baselines under occlusion. CountOCC also demonstrates exceptional generalization by setting new SOTA results on CARPK with a 40.7% MAE reduction and on CAPTURE-Real with a 40.0% MAE reduction, validating robust amodal counting across diverse visual domains. Code will be released soon.
