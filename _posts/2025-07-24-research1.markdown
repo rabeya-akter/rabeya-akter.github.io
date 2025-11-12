@@ -4,7 +4,7 @@ date:   2025-07-27
 title:  "T3Time: Tri-Modal Time Series Forecasting via Adaptive Multi-Head Alignment and Residual Fusion"
 categories: research-completed
 image: images\time.JPG
-venue: "Submitted in AAAI 2026"
+venue: "Accepted at AAAI 2026 Main Technical Track"
 author: "Rabeya Akter"
 authors: Abdul Monaf Chowdhury, <strong>Rabeya Akter</strong>, Safaeid Hossain Arib
 arxiv: https://www.arxiv.org/abs/2508.04251
