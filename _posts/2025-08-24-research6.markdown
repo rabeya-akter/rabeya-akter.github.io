@@ -3,7 +3,7 @@ layout: post
 title:  "LAGEA: LANGUAGE GUIDED EMBODIED AGENTS FOR ROBOTIC MANIPULATION"
 image: images\LAGEA.JPG
 categories: research-completed
-venue: Submitted in ICLR 2026
+venue: Under Review at ICLR 2026
 author: "Rabeya Akter"
 authors: Abdul Monaf Chowdhury, Akm Moshiur Rahman Mazumder, <strong>Rabeya Akter</strong>, Safaeid Hossain Arib
 ---
