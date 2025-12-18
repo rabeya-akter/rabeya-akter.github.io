@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LAGEA: LANGUAGE GUIDED EMBODIED AGENTS FOR ROBOTIC MANIPULATION"
+title:  "LaGEA: Language Guided Embodied Agents for Robotic Manipulation"
 image: images\LAGEA.JPG
 categories: research-completed
 venue: Under Review at ICLR 2026
