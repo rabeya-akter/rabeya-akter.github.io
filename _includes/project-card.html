@@ -1,0 +1,10 @@
+{% assign project = include.project %}
+<a class="proj" href="{{ project.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
+  <div class="proj__media">
+    <img src="{{ site.baseurl }}/{{ project.image }}" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="proj__body">
+    <p class="proj__kicker">{{ include.kicker }}</p>
+    <h3 class="proj__title">{{ project.title }}</h3>
+  </div>
+</a>

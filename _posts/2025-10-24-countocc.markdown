@@ -1,0 +1,178 @@
+---
+layout: publication
+permalink: /projects/countocc/
+order: 5
+title: "Counting Through Occlusion: Framework for Open World Amodal Counting"
+short_title: "CountOCC"
+categories: research-completed
+venue: "arXiv preprint arXiv:2511.12702 · Submitted to WACV 2027"
+venue_short: "arXiv 2025"
+status: "Under review"
+topics: ["Computer Vision", "Amodal Counting", "Multimodal"]
+authors: 'Safaeid Hossain Arib, <span class="me">Rabeya Akter</span>, Abdul Monaf Chowdhury, Md Jubair Ahmed Sourov, Md Mehedi Hasan'
+authors_full: 'Safaeid Hossain Arib<sup>1</sup>, <span class="me">Rabeya Akter</span><sup>1</sup>, Abdul Monaf Chowdhury<sup>1</sup>, Md Jubair Ahmed Sourov<sup>1</sup>, Md Mehedi Hasan<sup>1</sup>'
+affiliations: '<sup>1</sup>Department of Robotics and Mechatronics Engineering, University of Dhaka'
+arxiv: https://arxiv.org/abs/2511.12702
+code: https://github.com/rabeya-akter/CountOCC
+thumb: images/papers/countocc/thumb.webp
+image: images/papers/countocc/thumb.webp
+summary: "State-of-the-art counters only count what they can see. CountOCC reconstructs the features of hidden objects from visible context and text/exemplar priors, and enforces attention consistency between occluded and unoccluded views. It sets a new state of the art on our occlusion benchmarks FSC-147-OCC and CARPK-OCC, and on CAPTURe-Real."
+tldr: "Under occlusion, a backbone encodes the occluder, not the objects behind it. CountOCC rebuilds features at occluded locations from visible fragments plus text and exemplar priors, and trains the occluded view to attend like the clean view."
+stats:
+  - value: "−20.8%"
+    label: "test MAE on FSC-147-OCC vs. CountGD (−26.7% on validation)"
+  - value: "−68%"
+    label: "occluded-region MAE on FSC-147-OCC test (18.16 → 5.80)"
+  - value: "−49.9%"
+    label: "MAE on CARPK-OCC (9.28 → 4.65)"
+  - value: "−28.8%"
+    label: "MAE on CAPTURe-Real (14.97 → 10.66)"
+teaser: images/papers/countocc/problem.webp
+teaser_class: narrow
+teaser_caption: "<b>Amodal counting.</b> With two of twelve donuts hidden, prior methods count only the visible ten. CountOCC also predicts the two occluded instances."
+bibtex: |
+  @article{arib2025countocc,
+    title   = {Counting Through Occlusion: Framework for Open World Amodal Counting},
+    author  = {Arib, Safaeid Hossain and Akter, Rabeya and Chowdhury, Abdul Monaf and
+               Sourov, Md Jubair Ahmed and Hasan, Md Mehedi},
+    journal = {arXiv preprint arXiv:2511.12702},
+    year    = {2025}
+  }
+---
+
+<h2>Abstract</h2>
+<p class="abstract">Object counting has achieved remarkable success on visible instances, yet state-of-the-art (SOTA) methods fail under occlusion. This failure stems from a fundamental architectural limitation where backbone networks encode occluding surfaces rather than target objects, thereby corrupting the feature representations required for accurate enumeration. To address this, we present CountOCC, an amodal counting framework that explicitly reconstructs occluded object features through hierarchical multimodal guidance. Rather than accepting degraded encodings, we synthesize complete representations by integrating spatial context from visible fragments with semantic priors from text and visual embeddings, generating features at occluded locations across multiple pyramid levels. We further introduce a visual equivalence objective that enforces consistency in attention space, ensuring that both occluded and unoccluded views of the same scene produce spatially aligned gradient-based attention maps. Together, these complementary mechanisms preserve discriminative properties essential for accurate counting under occlusion. For rigorous evaluation, we establish occlusion-augmented versions of FSC-147 and CARPK (FSC-147-OCC and CARPK-OCC). CountOCC achieves SOTA performance on FSC-147-OCC with 26.72% and 20.80% MAE reduction over prior baselines under occlusion in validation and test, respectively. CountOCC also demonstrates exceptional generalization by setting new SOTA results on CARPK-OCC with 49.89% MAE reduction and on CAPTURe-Real with 28.79% MAE reduction, validating robust amodal counting.</p>
+
+<h2>Counters only count what they see</h2>
+<p class="kicker">Motivation</p>
+<p>Open-world counters such as CountGD count any category from a text prompt or a few exemplar boxes. When objects are partly hidden, they fail in a predictable way. The backbone encodes the occluding surface instead of the objects behind it, so the features needed to count those objects are simply missing. Asking a model to count harder does not help, because the evidence is already corrupted.</p>
+<p>CountOCC does not accept the degraded features. It <strong>reconstructs</strong> them, using what is visible around the occluder together with what the text and exemplars say the object should look like. It then checks that the occluded view <strong>attends</strong> to the same places as a clean view of the scene.</p>
+
+<h2>Method</h2>
+<p class="kicker">Reconstruct, then align</p>
+
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/method.webp" alt="CountOCC architecture with image and text encoders, Feature Reconstruction Module, VisEQ, feature enhancer and cross-modality decoder" loading="lazy"></div>
+  <figcaption><b>CountOCC architecture.</b> FRM replaces corrupted occluded tokens at every pyramid level. VisEQ aligns gradient-based attention maps of the occluded (student) and original (teacher) views. Reconstructed features flow through the feature enhancer and cross-modality decoder to produce visible and occluded counts.</figcaption>
+</figure>
+
+<h3>1. Feature Reconstruction Module (FRM)</h3>
+<p>At each of three Swin Transformer pyramid levels (256, 512 and 1024 channels), visible tokens are kept and occluded positions are replaced by a learnable mask embedding. These queries self-attend, cross-attend to the visible tokens for spatial context, and then cross-attend to the fused text–exemplar embedding for semantics.</p>
+<div class="eq">\[ \mathbf{Q}_{\mathrm{vis}} = \Psi_{ca}\big(\Psi_{sa}(\mathbf{Q}_0),\, \mathbf{Z}_{\mathrm{vis}}\big) + \Psi_{sa}(\mathbf{Q}_0), \qquad \mathbf{Z}_{\mathrm{cond}} = \Psi_{ca}(\mathbf{Q}_{\mathrm{vis}},\, \mathbf{Z}_{v,t}) + \mathbf{Q}_{\mathrm{vis}} \]</div>
+<div class="eq">\[ \hat{\mathbf{Z}}_{\mathrm{occ}} = \Phi_{\mathrm{mlp}}(\mathbf{Z}_{\mathrm{cond}}) + \mathbf{Z}_{\mathrm{cond}}, \qquad \tilde{\mathbf{Z}} = \begin{cases} \mathbf{Z} &amp; \text{visible} \\ \hat{\mathbf{Z}}_{\mathrm{occ}} &amp; \text{occluded} \end{cases} \]</div>
+<p>A frozen teacher sees the clean image and provides target features at the occluded positions. Reconstruction is supervised with a Charbonnier, cosine and \(\ell_2\) loss, summed over levels.</p>
+<div class="eq">\[ \mathcal{L}_{\mathrm{rec}} = \sum_{\ell} \sum_{i \in \mathcal{O}^{(\ell)}} \Big[ \lambda_{\mathrm{charb}} \sqrt{\lVert \Delta^{(\ell)} \rVert_2^2 + \epsilon^2} + \lambda_{\cos}\big(1 - \cos(\hat{\mathbf{Z}}_S^{(\ell)}, \hat{\mathbf{Z}}_T^{(\ell)})\big) + \lambda_{\ell_2} \lVert \Delta^{(\ell)} \rVert_2^2 \Big] \]</div>
+
+<h3>2. Visual Equivalence (VisEQ)</h3>
+<p>FRM fixes the features. VisEQ fixes where the model <em>looks</em>. It computes language-conditioned Grad-CAM maps across pyramid levels for a teacher on the clean image and a student on the occluded one, and aligns them.</p>
+<div class="eq">\[ \mathcal{L}_{\mathrm{sim}} = \sum_{H,W} \Big[ \lambda_{\ell_2} \lVert \mathbf{G}_T - \mathbf{G}_S \rVert_2^2 + \lambda_{\cos}\big(1 - \cos(\mathbf{G}_T, \mathbf{G}_S)\big) \Big] \]</div>
+<p>A region-of-interest consistency loss \(\mathcal{L}_{\mathrm{cst}}\) rewards high, low-variance activation wherever either network is confident, which prevents the trivial solution of both maps going flat.</p>
+
+<div class="figure-row">
+  <figure class="figure" style="--ar: 1.45">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/frm.webp" alt="Feature Reconstruction Module diagram" loading="lazy"></div>
+    <figcaption><b>FRM.</b> Occluded queries gather spatial context from visible tokens, then semantic guidance from text and exemplars.</figcaption>
+  </figure>
+  <figure class="figure" style="--ar: 1.36">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/viseq.webp" alt="Visual Equivalence framework diagram" loading="lazy"></div>
+    <figcaption><b>VisEQ.</b> Teacher and student attention maps are aligned across clean and occluded views.</figcaption>
+  </figure>
+</div>
+
+<h3>3. New occlusion benchmarks</h3>
+<p>FSC-147-OCC and CARPK-OCC add controlled occlusion to the FSC-147 open-world counting benchmark (147 categories) and the CARPK car-counting dataset, with separate ground truth for visible and occluded objects.</p>
+<figure class="figure figure--narrow">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/dataset.webp" alt="Sample images from FSC-147-OCC and CARPK-OCC" loading="lazy"></div>
+  <figcaption><b>Benchmark samples</b> from (a) FSC-147-OCC and (b) CARPK-OCC.</figcaption>
+</figure>
+
+<h2>Results</h2>
+<p class="kicker">MAE / RMSE · lower is better</p>
+
+<h3>FSC-147-OCC</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Method</th><th>Prompt</th><th>Val MAE</th><th>Val RMSE</th><th>Test MAE</th><th>Test RMSE</th></tr></thead>
+  <tbody>
+    <tr><td>CLIP-Count</td><td>Text</td><td>26.31</td><td>80.45</td><td>23.90</td><td>108.57</td></tr>
+    <tr><td>CounTX</td><td>Text</td><td>24.81</td><td>75.58</td><td>23.04</td><td>113.83</td></tr>
+    <tr><td>CounTR</td><td>Exemplars</td><td>23.14</td><td>66.78</td><td>22.25</td><td>104.75</td></tr>
+    <tr><td>LOCA</td><td>Exemplars</td><td>17.13</td><td>44.25</td><td>16.77</td><td>78.41</td></tr>
+    <tr><td>CountGD</td><td>Exemplars + Text</td><td>15.83</td><td>54.38</td><td>14.42</td><td>85.40</td></tr>
+    <tr class="ours"><td>CountOCC</td><td>Exemplars + Text</td><td>11.60</td><td>35.40</td><td>11.42</td><td>38.68</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Where the gain comes from</h3>
+<p>Splitting the error into visible and occluded regions shows CountOCC keeps visible-region accuracy about the same while cutting occluded-region error by roughly a factor of three. The model is reasoning about what is hidden, not just exploiting the occluder's appearance.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Method</th><th>Val visible MAE</th><th>Val occluded MAE</th><th>Test visible MAE</th><th>Test occluded MAE</th></tr></thead>
+  <tbody>
+    <tr><td>CountGD</td><td>8.05</td><td>17.46</td><td>9.74</td><td>18.16</td></tr>
+    <tr class="ours"><td>CountOCC</td><td>8.04</td><td>5.61</td><td>8.52</td><td>5.80</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Generalization</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Benchmark</th><th>CountGD MAE</th><th>CountOCC MAE</th><th>CountGD RMSE</th><th>CountOCC RMSE</th></tr></thead>
+  <tbody>
+    <tr><td>CARPK-OCC (test)</td><td>9.28</td><td class="best">4.65</td><td>11.27</td><td class="best">5.91</td></tr>
+    <tr><td>CAPTURe-Real</td><td>14.97</td><td class="best">10.66</td><td>41.62</td><td class="best">41.31</td></tr>
+    <tr><td>CrowdHuman</td><td>9.97</td><td class="best">8.24</td><td>24.46</td><td class="best">17.87</td></tr>
+  </tbody>
+</table>
+</div>
+<p>On the original, unoccluded FSC-147, CountOCC stays competitive with a test MAE of 7.02, second only to CountGD (5.74), so robustness to occlusion does not come at the expense of normal counting.</p>
+
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/real-world.webp" alt="CountGD and CountOCC density responses on a CrowdHuman basketball scene" loading="lazy"></div>
+  <figcaption><b>CrowdHuman.</b> CountOCC assigns stronger responses to partially occluded people, such as the leftmost player, reducing undercounting in overlapping regions.</figcaption>
+</figure>
+
+<figure class="figure figure--narrow">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/qualitative.webp" alt="Qualitative comparison of CLIP-Count, CounTX, CounTR, LOCA, CountGD and CountOCC on occluded FSC-147 images" loading="lazy"></div>
+  <figcaption><b>Qualitative comparison on FSC-147-OCC.</b> Columns show CLIP-Count, CounTX, CounTR, LOCA, CountGD and CountOCC. Prior methods undercount hidden objects, while CountOCC counts correctly across diverse scenes.</figcaption>
+</figure>
+
+<h2>What matters</h2>
+<p class="kicker">Ablations on FSC-147-OCC</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Variant</th><th>Val MAE</th><th>Val RMSE</th><th>Test MAE</th><th>Test RMSE</th></tr></thead>
+  <tbody>
+    <tr class="group"><td colspan="5">Design</td></tr>
+    <tr><td>No FRM (CountGD)</td><td>15.83</td><td>54.38</td><td>14.42</td><td>85.40</td></tr>
+    <tr><td>FRM at one level</td><td>13.16</td><td>54.51</td><td>13.77</td><td>108.63</td></tr>
+    <tr><td>FRM at all levels</td><td>11.32</td><td>48.12</td><td>11.90</td><td>91.45</td></tr>
+    <tr class="ours"><td>FRM at all levels + VisEQ</td><td>11.60</td><td>35.40</td><td>11.42</td><td>38.68</td></tr>
+    <tr class="group"><td colspan="5">Reconstruction loss</td></tr>
+    <tr><td>\(\ell_2\)</td><td>13.88</td><td>78.67</td><td>13.24</td><td>88.93</td></tr>
+    <tr><td>+ cosine</td><td>12.18</td><td>48.88</td><td>12.38</td><td>87.04</td></tr>
+    <tr><td>+ Charbonnier</td><td>11.32</td><td>48.12</td><td>11.90</td><td>91.45</td></tr>
+    <tr class="ours"><td>+ VisEQ losses</td><td>11.60</td><td>35.40</td><td>11.42</td><td>38.68</td></tr>
+  </tbody>
+</table>
+</div>
+<ul>
+  <li><strong>Reconstruct at every scale.</strong> FRM at one level helps MAE but not large errors. All three levels cut validation MAE by 28.5%.</li>
+  <li><strong>VisEQ tames the worst cases.</strong> Adding attention alignment more than halves test RMSE (91.45 → 38.68), meaning far fewer large miscounts.</li>
+</ul>
+
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/feature-viz.webp" alt="t-SNE of occluded, ground-truth and reconstructed features at three pyramid levels" loading="lazy"></div>
+  <figcaption><b>Reconstructed features land where they should.</b> t-SNE at three pyramid levels comparing occluded features (red), ground-truth features from unoccluded images (green) and reconstructed features (blue).</figcaption>
+</figure>
+
+<h2>Limitations</h2>
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/countocc/limitations.webp" alt="Examples where total count is correct but predicted locations in the occluded region differ from true locations" loading="lazy"></div>
+  <figcaption><b>Right count, approximate location.</b> CountOCC predicts the correct totals, but the spatial layout of density inside the occluded region does not always match the true object positions.</figcaption>
+</figure>
+<div class="note">
+  <p>FRM recovers features that are informative for <em>how many</em> objects are hidden, but it does not enforce a one-to-one match with <em>where</em> they are, so CountOCC targets amodal counting rather than amodal detection. It also assumes an occlusion mask, which in practice could come from a segmentation model. Without a mask it behaves as a standard open-world counter. Predicting the mask jointly with the count is an important next step.</p>
+</div>

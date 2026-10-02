@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="container">
+  <header class="paper-hero">
+    <div class="pub__meta">
+      <span class="badge">{% if page.categories contains 'office-project' %}Industry project{% elsif page.categories contains 'course-project' %}Course project{% else %}Personal project{% endif %}</span>
+    </div>
+    <h1 class="paper-hero__title">{{ page.title }}</h1>
+    {% if page.course %}<p class="paper-hero__affils">{{ page.course }}</p>{% endif %}
+    {% if page.org %}<p class="paper-hero__affils">{{ page.org }}</p>{% endif %}
+    {% if page.code or page.website or page.paper or page.demo1 %}
+    <div class="btn-row">
+      {% if page.website %}<a class="btn btn--primary btn--lg" href="{{ page.website }}" target="_blank" rel="noopener">{% include icon.html name='page' %}Website</a>{% endif %}
+      {% if page.code %}<a class="btn btn--lg" href="{{ page.code }}" target="_blank" rel="noopener">{% include icon.html name='code' %}Code</a>{% endif %}
+      {% if page.paper %}<a class="btn btn--lg" href="{{ page.paper }}" target="_blank" rel="noopener">{% include icon.html name='paper' %}Paper</a>{% endif %}
+      {% if page.demo1 %}<a class="btn btn--lg" href="{{ page.demo1 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 1</a>{% endif %}
+      {% if page.demo2 %}<a class="btn btn--lg" href="{{ page.demo2 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 2</a>{% endif %}
+      {% if page.demo3 %}<a class="btn btn--lg" href="{{ page.demo3 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 3</a>{% endif %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="paper-body">
+    <figure class="figure figure--narrow">
+      <div class="figure__frame"><img src="{{ site.baseurl }}/{{ page.image }}" alt="Illustration for {{ page.title | escape }}"></div>
+    </figure>
+    <div class="prose">
+      {{ content }}
+      {% if page.tools %}<p><strong>Tools:</strong> {{ page.tools }}</p>{% endif %}
+    </div>
+    <nav class="paper-nav" aria-label="Back">
+      <a href="{{ site.baseurl }}/#projects"><span>← Back</span>All projects</a>
+    </nav>
+  </div>
+</article>

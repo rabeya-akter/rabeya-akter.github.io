@@ -1,0 +1,237 @@
+---
+layout: publication
+permalink: /projects/lagea/
+order: 3
+title: "LAGEA: Language Guided Embodied Agents for Robotic Manipulation"
+short_title: "LAGEA"
+categories: research-completed
+venue: "Proceedings of the 43rd International Conference on Machine Learning (ICML 2026)"
+venue_short: "ICML 2026"
+badge_style: accent
+topics: ["Embodied AI", "Reinforcement Learning", "VLMs"]
+authors: 'Abdul Monaf Chowdhury, Akm Moshiur Rahman Mazumder, Safaeid Hossain Arib, <span class="me">Rabeya Akter</span>'
+authors_full: 'Abdul Monaf Chowdhury<sup>1</sup>, Akm Moshiur Rahman Mazumder<sup>2</sup>, Safaeid Hossain Arib<sup>1</sup>, <span class="me">Rabeya Akter</span><sup>1</sup>'
+affiliations: '<sup>1</sup>University of Dhaka &nbsp; <sup>2</sup>Independent University, Bangladesh'
+arxiv: https://arxiv.org/abs/2509.23155
+code: https://github.com/rabeya-akter/LaGEA
+thumb: images/papers/lagea/thumb.webp
+image: images/papers/lagea/thumb.webp
+summary: "LAGEA turns structured vision-language-model reflections on a robot's own failures into temporally grounded, progress-based shaping rewards. It localizes the decisive moments of an episode, aligns feedback with visual states, and fades the guidance as the policy improves, outperforming FuRL on Meta-World MT10 and Fetch."
+tldr: "A similarity score summarizes the outcome, not the cause. LAGEA asks a VLM to diagnose why an episode failed using a fixed error schema, anchors that diagnosis to the key frames where it happened, and turns it into a shaping reward that fades as the robot gets competent."
+stats:
+  - value: "80.0%"
+    label: "MT10 fixed goals (+4.0 over FuRL)"
+  - value: "70.4%"
+    label: "MT10 random goals (+5.8 over FuRL)"
+  - value: "51.7%"
+    label: "Gymnasium-Robotics Fetch (+7.5 over FuRL)"
+  - value: "98.9%"
+    label: "with structured feedback vs. 78.9% free-form"
+teaser: images/papers/lagea/method.webp
+teaser_caption: "<b>The LAGEA loop.</b> Key frames from each trajectory are sent to a frozen VLM with an error taxonomy. The structured reflection is embedded, aligned with visual states, and fused with goal progress into a shaping reward for the policy."
+bibtex: |
+  @inproceedings{chowdhury2026lagea,
+    title     = {{LAGEA}: Language Guided Embodied Agents for Robotic Manipulation},
+    author    = {Chowdhury, Abdul Monaf and Mazumder, Akm Moshiur Rahman and
+                 Arib, Safaeid Hossain and Akter, Rabeya},
+    booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+    series    = {Proceedings of Machine Learning Research},
+    volume    = {306},
+    year      = {2026}
+  }
+---
+
+<h2>Abstract</h2>
+<p class="abstract">Robotic manipulation benefits from foundation models that describe goals, but today’s agents still lack a principled way to learn from their own mistakes. We ask whether natural language can serve as feedback, an error-reasoning signal that helps embodied agents diagnose what went wrong and correct course. We introduce LaGEA (<b>La</b>nguage <b>G</b>uided <b>E</b>mbodied <b>A</b>gents), a framework that turns episodic, schema-constrained reflections from a vision language model (VLM) into temporally grounded guidance for reinforcement learning. LaGEA summarizes each attempt in concise language, localizes the decisive moments in the trajectory, aligns feedback with visual state in a shared representation, and converts goal progress and feedback agreement into bounded, step-wise shaping rewards whose influence is modulated by an adaptive, failure-aware coefficient. This design yields dense signals early when exploration needs direction and gracefully recedes as competence grows. On the Meta-World MT10 and Robotic Fetch embodied manipulation benchmark, LaGEA improves average success over the state-of-the-art (SOTA) methods by 9.0% on random goals, 5.3% on fixed goals, and 17% on fetch tasks, while converging faster. These results support our hypothesis: language, when structured and grounded in time, is an effective mechanism for teaching robots to self-reflect on mistakes and make better choices.</p>
+
+<h2>A score is not a diagnosis</h2>
+<p class="kicker">Motivation</p>
+<p>Recent methods use vision–language models as reward models. They compare the current camera frame with a goal description and return a similarity score. That score says how far the robot is from success, but not <em>why</em> it is failing. It cannot tell grasping the wrong object from approaching at the wrong angle or pushing too gently.</p>
+<p>LAGEA makes the VLM produce that diagnosis explicitly, then solves three problems that stop language from being a usable training signal. Small VLMs drift and hallucinate, so feedback must be structured. One sentence per episode gives poor credit assignment, so it must be anchored in time. And text is not a reward, so it must be aligned with what the robot sees.</p>
+
+<h3>What a reflection looks like</h3>
+<p>After every episode the VLM must answer in a fixed JSON schema with one primary error code from a small taxonomy, a one-sentence explanation, the key frames, a suggested fix and a confidence.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Error code</th><th style="text-align:left">Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><code>wrong_object</code></td><td style="text-align:left">Interacted with the wrong object</td></tr>
+    <tr><td><code>bad_approach_direction</code></td><td style="text-align:left">Approached the object from the wrong angle or direction</td></tr>
+    <tr><td><code>failed_grasp</code></td><td style="text-align:left">Contact without a stable grasp, slipped or never closed</td></tr>
+    <tr><td><code>insufficient_force</code></td><td style="text-align:left">Touched the right object but without enough motion or force</td></tr>
+    <tr><td><code>drift_from_goal</code></td><td style="text-align:left">Drifted away from the goal with no course correction</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="code-label">Failure on button-press-topdown</p>
+<pre class="code">{
+  "task": "button-press-topdown-v2-goal-observable",
+  "outcome": "failure",
+  "primary_error": {
+    "code": "bad_approach_direction",
+    "explanation": "The gripper came from the side, sliding off the button instead of a vertical press."
+  },
+  "secondary_factors": [],
+  "key_frame_indices": [18, 22],
+  "suggested_fix": "Approach from directly above the button; align gripper normal to the button surface, then press straight down.",
+  "confidence": 0.85,
+  "summary": "The robot failed to press the button correctly because it approached from the side instead of a vertical press."
+}</pre>
+<p>The reflection is produced by a frozen Qwen2.5-VL-3B and embedded with a frozen GPT-2 into a 768-dimensional feedback vector.</p>
+
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/feedback.webp" alt="Feedback generation pipeline from key frames to VLM reflection to feedback embedding" loading="lazy"></div>
+  <figcaption><b>Feedback generation.</b> Key frames selected from an episode are analysed by the VLM, which returns structured feedback that is then encoded into a feedback embedding.</figcaption>
+</figure>
+
+<h2>Method</h2>
+<p class="kicker">Find the moments, align, reward progress, fade the guidance</p>
+
+<h3>1. Find the moments that mattered</h3>
+<p>Broadcasting one feedback vector to every step ignores <em>when</em> the outcome was decided. LAGEA scores each frame by how close it is to the goal and how sharply that closeness is changing, using image embeddings \(x_t\) and the goal embedding \(g\).</p>
+<div class="eq">\[ s_t = \cos(x_t, g), \qquad v_t = s_t - s_{t-1}, \qquad a_t = v_t - v_{t-1} \]</div>
+<div class="eq">\[ p_t = \omega_s\,[z(s_t)]_+ + \omega_v\, z(|v_t|) + \omega_a\, z(|a_t|) \]</div>
+<p>The highest-saliency frames, spaced apart in time, become key frames \(\mathcal{K}\). A triangular kernel spreads their influence to nearby steps, giving per-step weights that concentrate learning on approach, contact and reversal.</p>
+<div class="eq">\[ \tilde w_t = \max_{k \in \mathcal{K}} \Big(1 - \tfrac{|t-k|}{h+1}\Big)_+, \qquad w_t = \beta + (1-\beta)\, \tilde w_t \]</div>
+
+<h3>2. Put feedback and pixels in one space</h3>
+<p>Small MLP projectors map image states \(z_t\), the feedback \(z_f\) and the goal \(z_g\) onto a shared unit sphere. A weighted binary loss calibrates absolute agreement (successful steps pull image and feedback together, failures push them apart), and an InfoNCE loss shapes relative geometry across the batch.</p>
+<div class="eq">\[ \mathcal{L}_{\mathrm{align}} = \lambda_{\mathrm{bce}}\, \mathcal{L}_{\mathrm{bce}} + \lambda_{\mathrm{nce}}\, \mathcal{L}_{\mathrm{nce}}, \qquad \psi_t = \langle z_t, z_f \rangle \]</div>
+
+<h3>3. Reward progress, not position</h3>
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/reward-model.webp" alt="Goal potential and feedback potential used to compute delta rewards" loading="lazy"></div>
+  <figcaption><b>Delta-based rewards.</b> (a) A goal potential aligns the current state with the goal image and instruction. (b) A feedback potential aligns the state with the VLM feedback. Their temporal differences form the shaping reward.</figcaption>
+</figure>
+<p>LAGEA rewards the <em>change</em> in goal agreement and in feedback agreement, so the signal is positive when the robot moves the right way. Feedback reward is gated by the key-frame weights, and the two are mixed according to how well the instruction and the feedback agree.</p>
+<div class="eq">\[ r_t^{\mathrm{goal}} = \tanh\!\Big(\tfrac{\gamma\,\phi_{t+1} - \phi_t}{\tau_{\mathrm{goal}}}\Big), \qquad r_t^{\mathrm{fb}} = \hat w_t \tanh\!\Big(\tfrac{\gamma\,\psi_{t+1} - \psi_t}{\tau_f}\Big) \]</div>
+<div class="eq">\[ \tilde r_t = (1-\alpha)\, r_t^{\mathrm{goal}} + \alpha\, r_t^{\mathrm{fb}}, \qquad \alpha = \mathrm{clip}\big(\alpha_{\mathrm{base}} \cdot \tfrac12 (1 + \langle z_y, z_f \rangle)\big) \]</div>
+
+<h3>4. Let the guidance fade</h3>
+<p>Dense language rewards can overpower the sparse task reward. LAGEA applies shaping only on failures and scales it by a coefficient that shrinks as estimated progress \(P\) grows, so guidance is strong early and recedes as the policy becomes competent.</p>
+<div class="eq">\[ \rho_t = \rho_{\min} + (\rho_{\max} - \rho_{\min})(1 - P), \qquad r_t = r_t^{\mathrm{task}} + \mathbf{1}[r_t^{\mathrm{task}} &lt; 0]\, \rho_t\, \tilde r_t \]</div>
+
+<h2>Results</h2>
+<p class="kicker">Success rate (%) · higher is better</p>
+
+<h3>Meta-World MT10, fixed goals</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Task</th><th>SAC</th><th>LIV</th><th>LIV-Proj</th><th>Relay</th><th>FuRL w/o goal img</th><th>FuRL</th><th>LAGEA</th></tr></thead>
+  <tbody>
+    <tr><td>button-press-topdown</td><td>0</td><td>0</td><td>0</td><td>60</td><td>80</td><td>100</td><td>100</td></tr>
+    <tr><td>door-open</td><td>50</td><td>0</td><td>0</td><td>80</td><td>100</td><td>100</td><td>100</td></tr>
+    <tr><td>drawer-close</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td></tr>
+    <tr><td>drawer-open</td><td>20</td><td>0</td><td>0</td><td>40</td><td>80</td><td>80</td><td class="best">100</td></tr>
+    <tr><td>peg-insert-side</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>pick-place</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>push</td><td>0</td><td>0</td><td>0</td><td>0</td><td>40</td><td>80</td><td class="best">100</td></tr>
+    <tr><td>reach</td><td>60</td><td>80</td><td>80</td><td>100</td><td>100</td><td>100</td><td>100</td></tr>
+    <tr><td>window-close</td><td>60</td><td>60</td><td>40</td><td>80</td><td>100</td><td>100</td><td>100</td></tr>
+    <tr><td>window-open</td><td>80</td><td>40</td><td>20</td><td>80</td><td>100</td><td>100</td><td>100</td></tr>
+    <tr class="ours"><td>Average</td><td>37.0</td><td>28.0</td><td>24.0</td><td>54.0</td><td>70.0</td><td>76.0</td><td>80.0</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-caption">Average over five seeds.</p>
+
+<h3>Meta-World MT10, random goals</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Task</th><th>SAC</th><th>Relay</th><th>FuRL</th><th>LAGEA</th></tr></thead>
+  <tbody>
+    <tr><td>button-press-topdown</td><td>16.0 (32.0)</td><td>56.0 (38.3)</td><td>64.0 (32.6)</td><td class="best">96 (8)</td></tr>
+    <tr><td>door-open</td><td>78.0 (39.2)</td><td>80.0 (30.3)</td><td>96.0 (8.0)</td><td class="best">100 (0)</td></tr>
+    <tr><td>drawer-close</td><td>100.0 (0.0)</td><td>100.0 (0.0)</td><td>100.0 (0.0)</td><td>100 (0)</td></tr>
+    <tr><td>drawer-open</td><td>40.0 (49.0)</td><td>50.0 (42.0)</td><td>84.0 (27.3)</td><td class="best">92 (9.8)</td></tr>
+    <tr><td>pick-place</td><td>0.0 (0.0)</td><td>0.0 (0.0)</td><td>0.0 (0.0)</td><td class="best">4 (4.9)</td></tr>
+    <tr><td>peg-insert-side</td><td>0.0 (0.0)</td><td>0.0 (0.0)</td><td>0.0 (0.0)</td><td>0</td></tr>
+    <tr><td>push</td><td>0.0 (0.0)</td><td>0.0 (0.0)</td><td>6.0 (8.0)</td><td class="best">12 (4)</td></tr>
+    <tr><td>reach</td><td>100.0 (0.0)</td><td>100.0 (0.0)</td><td>100.0 (0.0)</td><td>100 (0)</td></tr>
+    <tr><td>window-close</td><td>86.0 (28.0)</td><td>96.0 (4.9)</td><td>100.0 (0.0)</td><td>100 (0)</td></tr>
+    <tr><td>window-open</td><td>78.0 (39.2)</td><td>92.0 (7.5)</td><td>96.0 (4.9)</td><td class="best">100 (0)</td></tr>
+    <tr class="ours"><td>Average</td><td>49.8 (7.9)</td><td>57.4 (7.0)</td><td>64.6 (5.0)</td><td>70.4 (1.85)</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-caption">Mean (standard deviation) over five seeds.</p>
+
+<h3>Gymnasium-Robotics Fetch</h3>
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/fetch.webp" alt="The four Fetch tasks: Reach, Push, PickAndPlace and Slide" loading="lazy"></div>
+  <figcaption><b>Fetch benchmark.</b> A 7-DoF arm on Reach, Push, PickAndPlace and Slide.</figcaption>
+</figure>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Task</th><th>SAC</th><th>Relay</th><th>FuRL</th><th>LAGEA</th></tr></thead>
+  <tbody>
+    <tr><td>Reach</td><td>100 (0)</td><td>100 (0)</td><td>100 (0)</td><td>100 (0)</td></tr>
+    <tr><td>Push</td><td>26.67 (4.71)</td><td>30 (8.16)</td><td>40 (8.16)</td><td class="best">53.33 (4.71)</td></tr>
+    <tr><td>PickAndPlace</td><td>10 (8.16)</td><td>20 (0)</td><td>33.33 (9.43)</td><td class="best">43.33 (4.71)</td></tr>
+    <tr><td>Slide</td><td>0 (0)</td><td>0 (0)</td><td>3.33 (4.71)</td><td class="best">10 (8.16)</td></tr>
+    <tr class="ours"><td>Average</td><td>34.17</td><td>37.5</td><td>44.17</td><td>51.67</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-caption">Mean (standard deviation) over three seeds.</p>
+
+<h3>Faster convergence</h3>
+<figure class="figure figure--wide">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/curves.webp" alt="Success-rate learning curves for SAC, FuRL and LAGEA on eight MT10 tasks" loading="lazy"></div>
+  <figcaption><b>Learning curves on eight Meta-World tasks.</b> LAGEA reaches high success in far fewer environment steps than FuRL and SAC, which plateau late or stall.</figcaption>
+</figure>
+<p>Averaged over nine MT10 settings, LAGEA converges in 92.4 minutes of wall-clock time versus 94.9 for FuRL, despite querying a VLM.</p>
+
+<h2>What matters</h2>
+<p class="kicker">Ablations</p>
+
+<div class="figure-row">
+  <figure class="figure" style="--ar: 0.98">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/reward-ablation.webp" alt="Reward ablation: 79% without goal delta, 80% without feedback delta, 80% without adaptive rho, 99% full LaGEA" loading="lazy"></div>
+    <figcaption><b>Every reward term matters.</b> Removing the goal delta, the feedback delta or the adaptive schedule drops success to 79–80%, versus 99% for the full model.</figcaption>
+  </figure>
+  <figure class="figure" style="--ar: 2.13">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/lagea/keyframe-ablation.webp" alt="Feedback reward on drawer-open with and without key frames" loading="lazy"></div>
+    <figcaption><b>Key frames sharpen credit.</b> On drawer-open, key-frame gating focuses the feedback reward on the decisive moments.</figcaption>
+  </figure>
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Variant</th><th>Success (%)</th></tr></thead>
+  <tbody>
+    <tr class="group"><td colspan="2">Feedback format (6 tasks)</td></tr>
+    <tr><td><td>Free-form text</td><td>78.89</td></tr>
+    <tr class="ours"><td><td>Schema-constrained JSON</td><td>98.89</td></tr>
+    <tr class="group"><td colspan="2">Key-frame selection</td></tr>
+    <tr><td><td>Random frames</td><td>68.0</td></tr>
+    <tr><td><td>Uniform frames</td><td>67.3</td></tr>
+    <tr class="ours"><td><td>LAGEA key frames</td><td>80.0</td></tr>
+    <tr class="group"><td colspan="2">VLM for reflection</td></tr>
+    <tr><td><td>SmolVLM2</td><td>56.0</td></tr>
+    <tr><td><td>OpenQwen2VL</td><td>66.7</td></tr>
+    <tr><td><td>InternVL2</td><td>68.0</td></tr>
+    <tr class="ours"><td><td>Qwen2.5-VL-3B</td><td>80.0</td></tr>
+    <tr class="group"><td colspan="2">Text encoder for feedback</td></tr>
+    <tr><td><td>MPNet</td><td>70.7</td></tr>
+    <tr><td><td>BGE</td><td>71.3</td></tr>
+    <tr><td><td>LIV</td><td>72.7</td></tr>
+    <tr class="ours"><td><td>GPT-2</td><td>80.0</td></tr>
+    <tr class="group"><td colspan="2">Camera viewpoint (zero-shot)</td></tr>
+    <tr class="ours"><td><td>Training view</td><td>80.0</td></tr>
+    <tr><td><td>Directly overhead</td><td>79.3</td></tr>
+    <tr><td><td>Front-left diagonal</td><td>77.3</td></tr>
+    <tr><td><td>Behind-left diagonal</td><td>79.3</td></tr>
+  </tbody>
+</table>
+</div>
+<ul>
+  <li><strong>Structure is the biggest single lever.</strong> Constraining the VLM to a schema lifts success by 20 points over free-form reflections.</li>
+  <li><strong>Timing matters as much as content.</strong> Saliency-based key frames beat random or uniform frames by about 12 points.</li>
+  <li><strong>The policy transfers across viewpoints.</strong> Trained from one camera, LAGEA loses at most 2.7 points from three unseen ones.</li>
+</ul>
+
+<h2>Limitations</h2>
+<div class="note">
+  <p>LAGEA is evaluated in simulation, and contact-rich tasks such as peg insertion and pick-and-place remain largely unsolved. The approach is robust to viewpoint shifts but does not claim to handle severe self-occlusion or cluttered scenes, and VLM feedback can still be wrong. Real-robot and sim-to-real experiments are natural next steps.</p>
+</div>

@@ -1,0 +1,84 @@
+---
+layout: default
+---
+{% assign pubs = site.categories['research-completed'] | sort: 'order' %}
+{% for p in pubs %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+{% assign prev_idx = idx | minus: 1 %}
+{% assign next_idx = idx | plus: 1 %}
+
+<article class="container">
+  <header class="paper-hero">
+    <div class="pub__meta">
+      <span class="badge{% if page.badge_style %} badge--{{ page.badge_style }}{% endif %}">{{ page.venue_short }}</span>
+      {% if page.status %}<span class="badge badge--outline">{{ page.status }}</span>{% endif %}
+      {% for t in page.topics %}<span class="badge badge--outline">{{ t }}</span>{% endfor %}
+    </div>
+    <h1 class="paper-hero__title">{{ page.title }}</h1>
+    <p class="paper-hero__authors">{{ page.authors_full | default: page.authors }}</p>
+    {% if page.affiliations %}<p class="paper-hero__affils">{{ page.affiliations }}</p>{% endif %}
+    {% if page.venue %}<p class="paper-hero__notes">{{ page.venue }}</p>{% endif %}
+    {% if page.notes %}<p class="paper-hero__notes">{{ page.notes }}</p>{% endif %}
+    <div class="btn-row">
+      {% assign paper_link = page.paper | default: page.arxiv %}
+      {% if paper_link %}<a class="btn btn--primary btn--lg" href="{{ paper_link }}" target="_blank" rel="noopener">{% include icon.html name='paper' %}Paper</a>{% endif %}
+      {% if page.code %}<a class="btn btn--lg" href="{{ page.code }}" target="_blank" rel="noopener">{% include icon.html name='code' %}Code</a>{% endif %}
+      {% if page.bibtex %}<a class="btn btn--lg" href="#citation">{% include icon.html name='quote' %}BibTeX</a>{% endif %}
+      {% if page.coming_soon %}<span class="btn btn--lg btn--muted">{% include icon.html name='paper' %}{{ page.coming_soon }}</span>{% endif %}
+    </div>
+  </header>
+
+  <div class="paper-body">
+    {% if page.tldr %}
+    <section class="tldr" aria-label="TL;DR">
+      <p class="tldr__label">TL;DR</p>
+      <p>{{ page.tldr }}</p>
+    </section>
+    {% endif %}
+
+    {% if page.stats %}
+    <ul class="stats">
+      {% for s in page.stats %}<li><strong>{{ s.value }}</strong><span>{{ s.label }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.teaser %}
+    <figure class="figure figure--{{ page.teaser_class | default: 'wide' }}">
+      <div class="figure__frame"><img src="{{ site.baseurl }}/{{ page.teaser }}" alt="Overview figure for {{ page.title | strip_html | escape }}"></div>
+      {% if page.teaser_caption %}<figcaption>{{ page.teaser_caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
+    <div class="prose">
+      {{ content }}
+
+      {% if page.bibtex %}
+      <h2 id="citation">Citation</h2>
+      <div class="bibtex">
+        <button class="btn" type="button" data-copy>Copy</button>
+        <pre><code>{{ page.bibtex | strip | escape }}</code></pre>
+      </div>
+      {% endif %}
+    </div>
+
+    <nav class="paper-nav" aria-label="More publications">
+      {% if idx > 0 %}{% assign prev = pubs[prev_idx] %}<a href="{{ prev.url | prepend: site.baseurl }}"><span>← Previous</span>{{ prev.short_title | default: prev.title }}</a>{% endif %}
+      {% if next_idx < pubs.size %}{% assign next = pubs[next_idx] %}<a href="{{ next.url | prepend: site.baseurl }}"><span>Next →</span>{{ next.short_title | default: next.title }}</a>{% endif %}
+    </nav>
+  </div>
+</article>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.querySelector('.prose'), {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false});"></script>
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('code').innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      });
+    });
+  });
+</script>

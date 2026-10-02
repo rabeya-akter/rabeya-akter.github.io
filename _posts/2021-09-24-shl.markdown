@@ -1,0 +1,88 @@
+---
+layout: publication
+permalink: /projects/shl-activity-recognition/
+order: 8
+title: "Classical Machine Learning Approach for Human Activity Recognition Using Location Data"
+short_title: "Activity recognition from location data"
+date: 2021-09-24
+categories: research-completed
+venue: "UbiComp/ISWC '21 Adjunct: Adjunct Proceedings of the 2021 ACM International Joint Conference on Pervasive and Ubiquitous Computing and the 2021 ACM International Symposium on Wearable Computers"
+venue_short: "UbiComp/ISWC 2021"
+topics: ["Activity Recognition", "Ubiquitous Computing"]
+authors: 'Safaeid Hossain Arib, <span class="me">Rabeya Akter</span>, Omar Shahid, Md Atiqur Rahman Ahad'
+paper: https://dl.acm.org/doi/10.1145/3460418.3479376
+code: https://github.com/rabeya-akter/Sussex-Huawei-Locomotion-Challenge-2021
+thumb: images/papers/shl/pipeline.webp
+image: images/papers/shl/pipeline.webp
+summary: "Our entry to the Sussex-Huawei Locomotion Challenge 2021 recognizes eight locomotion and transportation activities from smartphone location data using statistical features and a random forest, reaching 78.14% validation accuracy and a 78.28% weighted F1 score."
+tldr: "Can a phone tell whether you are walking, cycling, or on a train from location data alone? A carefully engineered classical pipeline gets close to 80%."
+stats:
+  - value: "78.14%"
+    label: "validation accuracy"
+  - value: "78.28%"
+    label: "weighted F1 score"
+  - value: "8"
+    label: "locomotion and transportation modes"
+  - value: "11th"
+    label: "place in the SHL Challenge 2021"
+teaser: images/papers/shl/pipeline.webp
+teaser_caption: "<b>Block diagram of our method.</b> Location data is cleaned, label-matched and windowed, and statistical features train a classifier. At test time, missing location data is interpolated before prediction."
+bibtex: |
+  @inproceedings{arib2021classical,
+    title     = {Classical Machine Learning Approach for Human Activity Recognition Using Location Data},
+    author    = {Arib, Safaeid Hossain and Akter, Rabeya and Shahid, Omar and Ahad, Md Atiqur Rahman},
+    booktitle = {Adjunct Proceedings of the 2021 ACM International Joint Conference on Pervasive and
+                 Ubiquitous Computing and Proceedings of the 2021 ACM International Symposium on
+                 Wearable Computers},
+    year      = {2021},
+    doi       = {10.1145/3460418.3479376}
+  }
+---
+
+<h2>Abstract</h2>
+<p class="abstract">The Sussex-Huawei Locomotion-Transportation (SHL) recognition Challenge 2021 was a competition to classify 8 different activities and modes of locomotion performed by three individual users. There were four different modalities of data (Location, GPS, WiFi, and Cells) which were recorded from the phones of the users in their hip position. The train set came from user-1 and the validation set and test set were from user-2 and user-3. Our team 'GPU Kaj Kore Na' used only location modality to give our predictions in test set of this year's competition as location data was giving more accurate predictions and the rest of the modalities were too noisy as well as not contributing much to increase the accuracy. In our method, we used statistical feature set for feature extraction and Random Forest classifier to give prediction. We got validation accuracy of 78.138% and a weighted F1 score of 78.28% on the SHL Validation Set 2021.</p>
+
+<h2>The challenge</h2>
+<p class="kicker">SHL Recognition Challenge 2021</p>
+<p>The task was to recognize eight modes of locomotion and transportation, namely Still, Walking, Run, Bike, Car, Bus, Train and Subway, using only radio data from a phone carried at the hip. That data included GPS reception, GPS location, WiFi scans and GSM cell-tower scans.</p>
+<ul>
+  <li><strong>Cross-user split.</strong> Training data came from one user over 59 days, and validation and test data from two different users.</li>
+  <li><strong>Messy sensing.</strong> Sensors were sampled asynchronously at roughly 1 Hz, often dropped out, and some test timestamps had no sensor data at all.</li>
+  <li><strong>Class imbalance.</strong> Some activities, such as Run, had very few training examples.</li>
+</ul>
+
+<h2>Method</h2>
+<p class="kicker">Clean, window, featurize, classify</p>
+<ol class="steps">
+  <li><strong>Label matching</strong>Each sensor reading at time \(s\) takes the label of the label-file timestamp \(t\) with \(t \le s &lt; t+1\). Unmatched readings are dropped.</li>
+  <li><strong>Motion features</strong>Haversine distance and average speed between consecutive location fixes turn raw coordinates into movement.</li>
+  <li><strong>Windowed statistics</strong>Windows of 30 samples with no overlap yield 14 statistics per signal, from min, max and variance to autocorrelation and mean-crossing rate.</li>
+  <li><strong>Classify and fill gaps</strong>A 300-tree random forest predicts each window. Timestamps without location data are filled by interpolation.</li>
+</ol>
+<div class="eq">\[ d = 2r \arcsin \sqrt{\sin^2\!\Big(\frac{\alpha_2 - \alpha_1}{2}\Big) + \cos\alpha_1 \cos\alpha_2 \sin^2\!\Big(\frac{\beta_2 - \beta_1}{2}\Big)}, \qquad \text{speed} = \frac{d}{\Delta t} \]</div>
+<p>Here \(\alpha\) and \(\beta\) are latitude and longitude in radians.</p>
+
+<h2>Results</h2>
+<p class="kicker">Validation accuracy by modality</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Modality</th><th>Accuracy</th></tr></thead>
+  <tbody>
+    <tr><td>WiFi</td><td>30.99%</td></tr>
+    <tr><td>GPS</td><td>32.97%</td></tr>
+    <tr><td>GPS + Location</td><td>75.56%</td></tr>
+    <tr class="ours"><td>Location</td><td>78.14%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Location alone was the strongest signal. Adding GPS made it slightly worse, and WiFi and GPS on their own were too noisy to help, so the final submission used location data only.</p>
+
+<figure class="figure figure--narrow">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/shl/confusion-location.webp" alt="Confusion matrix over eight activities using location data" loading="lazy"></div>
+  <figcaption><b>Confusion matrix using location data.</b> Still, Walking, Car and Subway are recognized well. Run, which has the least training data, is weakest (F1 about 36%), and Bus and Train are often confused with Car.</figcaption>
+</figure>
+
+<h2>Takeaways</h2>
+<div class="note">
+  <p>Class imbalance biased the model toward frequent activities, and up-sampling did not fix it. Richer, more general features from the WiFi, cell and GPS streams, or a deep-learning model, could improve recognition of the rare classes further.</p>
+</div>

@@ -1,0 +1,17 @@
+{% assign home = site.baseurl | append: '/' %}
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav">
+  <nav class="container site-nav__inner" aria-label="Primary">
+    <a class="site-nav__brand" href="{{ home }}">{{ site.name }}</a>
+    <ul class="site-nav__links">
+      <li><a href="{{ home }}#about">About</a></li>
+      <li><a href="{{ home }}#research">Research</a></li>
+      <li><a href="{{ home }}#news">News</a></li>
+      <li><a href="{{ home }}#publications">Publications</a></li>
+      <li><a href="{{ home }}#experience">Experience</a></li>
+      <li><a href="{{ home }}#education">Education</a></li>
+      <li><a href="{{ home }}#projects">Projects</a></li>
+      <li><a class="site-nav__cv" href="{{ site.baseurl }}/cv/Rabeya_Akter_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+  </nav>
+</header>

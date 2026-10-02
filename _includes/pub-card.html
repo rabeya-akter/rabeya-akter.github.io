@@ -1,0 +1,23 @@
+{% assign p = include.pub %}
+{% assign page_url = p.url | prepend: site.baseurl %}
+<article class="pub{% if p.featured %} pub--featured{% endif %}">
+  <a class="pub__media" href="{{ page_url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    <img src="{{ site.baseurl }}/{{ p.thumb }}" alt="" loading="lazy" decoding="async">
+  </a>
+  <div>
+    <div class="pub__meta">
+      <span class="badge{% if p.badge_style %} badge--{{ p.badge_style }}{% endif %}">{{ p.venue_short }}</span>
+      {% if p.status %}<span class="badge badge--outline">{{ p.status }}</span>{% endif %}
+    </div>
+    <h3 class="pub__title"><a href="{{ page_url }}" target="_blank" rel="noopener">{{ p.title }}</a></h3>
+    <p class="pub__authors">{{ p.authors }}</p>
+    <div class="pub__summary"><p>{{ p.summary }}</p></div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ page_url }}" target="_blank" rel="noopener">{% include icon.html name='page' %}Project page</a>
+      {% assign paper_link = p.paper | default: p.arxiv %}
+      {% if paper_link %}<a class="btn" href="{{ paper_link }}" target="_blank" rel="noopener">{% include icon.html name='paper' %}Paper</a>{% endif %}
+      {% if p.code %}<a class="btn" href="{{ p.code }}" target="_blank" rel="noopener">{% include icon.html name='code' %}Code</a>{% endif %}
+      {% if p.coming_soon %}<span class="btn btn--muted">{% include icon.html name='paper' %}{{ p.coming_soon }}</span>{% endif %}
+    </div>
+  </div>
+</article>

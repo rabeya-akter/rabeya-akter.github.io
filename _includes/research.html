@@ -1,0 +1,41 @@
+{% assign base = site.baseurl %}
+<section class="section" id="research" aria-labelledby="research-heading">
+  <div class="section__head">
+    <h2 class="section__title" id="research-heading">Research</h2>
+  </div>
+  <p class="research-intro">I want models that understand what is happening in the physical world, explain it in the language people actually speak, and act on it. My work follows three threads. To <strong>perceive</strong>, a model should resolve fine-grained detail, like which hand touches which object, even when evidence is small, occluded or spread over time. To <strong>communicate</strong>, that grounding has to hold up beyond English, in low-resource languages such as Bangla. To <strong>act</strong> and <strong>reason</strong>, models need richer feedback than success or failure: why they failed, and where to look.</p>
+
+  <div class="threads">
+    <article class="thread thread--1">
+      <p class="thread__num">01 · Perceive</p>
+      <h3 class="thread__title">Egocentric &amp; Multimodal Understanding</h3>
+      <p class="thread__body">I study fine-grained visual understanding, from hand-object interactions in egocentric video to counting objects hidden behind occluders, by fusing complementary modalities so one view fills in what another misses.</p>
+      <div class="thread__links">
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/ek-bangla/">EK-Bangla →</a>
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/countocc/">CountOCC →</a>
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/t3time/">T3Time →</a>
+      </div>
+    </article>
+
+    <article class="thread thread--2">
+      <p class="thread__num">02 · Communicate</p>
+      <h3 class="thread__title">Low-Resource Vision &amp; Language</h3>
+      <p class="thread__body">I build benchmarks and models that test whether visual grounding survives the switch from English to Bangla, in egocentric video captioning and sign language translation.</p>
+      <div class="thread__links">
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/ek-bangla/">EK-Bangla →</a>
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/signformer-gcn/">SignFormer-GCN →</a>
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/bornil/">Bornil →</a>
+      </div>
+    </article>
+
+    <article class="thread thread--3">
+      <p class="thread__num">03 · Act &amp; Reason</p>
+      <h3 class="thread__title">Embodied AI &amp; Post-Training</h3>
+      <p class="thread__body">I use vision–language feedback to explain why a robot failed and turn it into rewards, and teach language models which earlier steps to attend to while reasoning.</p>
+      <div class="thread__links">
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/lagea/">LAGEA →</a>
+        <a target="_blank" rel="noopener" href="{{ base }}/projects/opasd/">OPASD →</a>
+      </div>
+    </article>
+  </div>
+</section>

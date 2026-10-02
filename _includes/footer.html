@@ -1,0 +1,36 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p>© {{ site.time | date: '%Y' }} {{ site.name }} · Dhaka, Bangladesh</p>
+      <p>
+        <a href="mailto:rabeyaakter231023@gmail.com">rabeyaakter231023@gmail.com</a> ·
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=3XYOK88AAAAJ" target="_blank" rel="noopener">Scholar</a> ·
+        <a href="https://github.com/rabeya-akter" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+    {% if include.map %}
+    <div class="visitor-map">
+      <script type="text/javascript" id="clustrmaps"
+        src="//cdn.clustrmaps.com/map_v2.js?cl=6f6a62&w=a&t=tt&d=RRJTSxkOjsoxATz8wr43SykLWnuBAvDgOxQmzRvf_0s&co=fbfaf7&ct=6f6a62"></script>
+    </div>
+    {% endif %}
+  </div>
+</footer>
+<script>
+  // Click-to-zoom for figures.
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest('.figure__frame img');
+    if (!img) return;
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.innerHTML = '<img alt="">';
+    box.firstChild.src = img.currentSrc || img.src;
+    box.firstChild.alt = img.alt;
+    document.body.appendChild(box);
+    requestAnimationFrame(function () { box.classList.add('is-open'); });
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+  });
+</script>

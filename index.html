@@ -1,0 +1,290 @@
+---
+layout: default
+show_map: true
+---
+<div class="container">
+
+  <!-- ============================ About ============================ -->
+  <section class="hero" id="about" aria-labelledby="about-heading">
+    <div class="hero__text">
+      <p class="eyebrow">Researcher · Multimodal Learning &amp; Vision-Language</p>
+      <h1 class="hero__name" id="about-heading">Rabeya Akter</h1>
+
+      <div class="hero__bio">
+        <p>I am a Research Assistant in the Department of Electrical and Computer Engineering at <a href="https://www.northsouth.edu/">North South University</a>, where I work with Md Salman Shamil and Dr. Md Adnan Arefeen on egocentric video understanding, modeling hand-object interactions and everyday task actions with LLM-guided reasoning.</p>
+        <p>My latest first-author work, <a target="_blank" rel="noopener" href="{{ site.baseurl }}/projects/ek-bangla/">EK-Bangla</a>, asks whether multimodal LLMs can describe fine-grained hand-object interactions in Bangla as well as they do in English. Every model we tested does worse in Bangla, and most caption errors are visual rather than linguistic.</p>
+        <p>I earned my B.Sc. in Robotics and Mechatronics Engineering from the <a href="https://rme.du.ac.bd/">University of Dhaka</a>. After graduating, I worked on amodal counting with <a href="https://scholar.google.com/citations?user=jGC1OfgAAAAJ&amp;hl=en">Dr. Md Mehedi Hasan</a> (University of Dhaka). As an undergraduate, I worked on continuous Bangla sign language translation with <a href="https://scholar.google.com/citations?user=Pe8C-SUAAAAJ&amp;hl=en">Dr. Shafin Rahman</a> (North South University) and <a href="https://scholar.google.com/citations?user=j8XhiIEAAAAJ&amp;hl=en">Dr. Sejuti Rahman</a>. In industry, I was an Associate Software Engineer on the machine learning team at <a href="https://therapbd.com/">Therap (BD) Ltd.</a> and a data science intern at Pathao.</p>
+        <p>Beyond research, I enjoy mentoring in olympiads, taking part in hackathons, and exploring cultural activities such as writing and performing.</p>
+      </div>
+
+      <div class="callout" role="note">
+        <span class="callout__dot" aria-hidden="true"></span>
+        <p><strong>I am actively seeking PhD opportunities for Fall 2027.</strong></p>
+      </div>
+
+      <div class="interests">
+        <p class="interests__label">Research interests</p>
+        <ul class="chips">
+          <li>Multimodal Learning</li>
+          <li>Vision-Language Models</li>
+          <li>Egocentric Video Understanding</li>
+          <li>Embodied AI</li>
+          <li>Reinforcement Learning</li>
+          <li>Language Model Post-Training</li>
+          <li>Computer Vision</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="hero__aside" aria-label="Profile and contact">
+      <figure class="portrait">
+        <img src="{{ site.baseurl }}/images/rabeya-lively.jpg" alt="Portrait of Rabeya Akter" width="960" height="1280">
+      </figure>
+      <ul class="contact-list">
+        <li><a href="mailto:rabeyaakter231023@gmail.com">{% include icon.html name='mail' %}rabeyaakter231023@gmail.com</a></li>
+        <li><a href="{{ site.baseurl }}/cv/Rabeya_Akter_CV.pdf" target="_blank" rel="noopener">{% include icon.html name='cv' %}Curriculum Vitae</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&amp;user=3XYOK88AAAAJ" target="_blank" rel="noopener">{% include icon.html name='scholar' %}Google Scholar</a></li>
+        <li><a href="https://github.com/rabeya-akter" target="_blank" rel="noopener">{% include icon.html name='github' %}GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/rabeya-akter-4a3111174/" target="_blank" rel="noopener">{% include icon.html name='linkedin' %}LinkedIn</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ============================ Research ============================ -->
+  {% include research.html %}
+
+  <!-- ============================ News ============================ -->
+  {% include news.html %}
+
+  <!-- ============================ Publications ============================ -->
+  <section class="section" id="publications" aria-labelledby="pubs-heading">
+    <div class="section__head">
+      <h2 class="section__title" id="pubs-heading">Publications &amp; Preprints</h2>
+      <a class="section__aside" href="https://scholar.google.com/citations?hl=en&amp;user=3XYOK88AAAAJ" target="_blank" rel="noopener">Google Scholar →</a>
+    </div>
+    <div class="pubs">
+      {% assign pubs = site.categories['research-completed'] | sort: 'order' %}
+      {% for pub in pubs %}
+        {% include pub-card.html pub=pub %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ============================ Experience ============================ -->
+  <section class="section" id="experience" aria-labelledby="exp-heading">
+    <div class="section__head">
+      <h2 class="section__title" id="exp-heading">Experience</h2>
+    </div>
+
+    <h3 class="subhead">Research</h3>
+    <ol class="timeline">
+      <li>
+        <div class="timeline__date">Mar 2026 – Present</div>
+        <div>
+          <h4 class="timeline__role">Research Assistant</h4>
+          <p class="timeline__org">Dept. of Electrical and Computer Engineering, North South University · with Md Salman Shamil and Dr. Md Adnan Arefeen</p>
+          <ul>
+            <li>Working on egocentric video understanding, modeling hand-object interactions and daily task actions with LLM-guided reasoning.</li>
+            <li>Led <a target="_blank" rel="noopener" href="{{ site.baseurl }}/projects/ek-bangla/">EK-Bangla</a>, the first Bangla benchmark for fine-grained egocentric hand-object interaction, with 9,600 verified captions and 2,000 MCQs. Submitted to WACV 2027.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jun 2025 – Feb 2026</div>
+        <div>
+          <h4 class="timeline__role">Research Assistant</h4>
+          <p class="timeline__org">Dept. of Robotics and Mechatronics Engineering, University of Dhaka · with Dr. Md Mehedi Hasan and Md. Jubair Ahmed Sourov</p>
+          <ul>
+            <li>Designed and implemented <a target="_blank" rel="noopener" href="{{ site.baseurl }}/projects/countocc/">CountOCC</a>, the first open-world amodal counting framework, and assembled occlusion-augmented datasets to evaluate it.</li>
+            <li>Co-authored the resulting manuscript, submitted to WACV 2027.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jan 2023 – Dec 2023</div>
+        <div>
+          <h4 class="timeline__role">Undergraduate Research Assistant</h4>
+          <p class="timeline__org">Dept. of Robotics and Mechatronics Engineering, University of Dhaka · with Dr. Shafin Rahman and Dr. Sejuti Rahman</p>
+          <ul>
+            <li>Designed and implemented a novel architecture for continuous sign language translation that achieved competitive performance across Bangla, American, and German benchmarks.</li>
+            <li>Co-authored the resulting work, <a target="_blank" rel="noopener" href="{{ site.baseurl }}/projects/signformer-gcn/">SignFormer-GCN</a>, published in PLOS ONE.</li>
+            <li>Secured a research grant from the Bangladesh Ministry of Science and Technology's Special Innovation Fund (Project ID: SRG-232431, FY 2023–2024).</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="subhead">Industry</h3>
+    <ol class="timeline">
+      <li>
+        <div class="timeline__date">Apr 2024 – May 2025</div>
+        <div>
+          <h4 class="timeline__role">Associate Software Engineer, QA</h4>
+          <p class="timeline__org"><a href="https://therapbd.com/">Therap (BD) Ltd.</a> · Machine Learning team · Dhaka, Bangladesh</p>
+          <ul>
+            <li>Researched Amazon Alexa devices and sound detection systems, reviewed action recognition datasets, and contributed to the design of data collection for action recognition.</li>
+            <li>Led quality assurance for the video redaction system, building test plans and cases to validate the machine learning algorithms used in video processing.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jan 2024 – Mar 2024</div>
+        <div>
+          <h4 class="timeline__role">AIM Intern</h4>
+          <p class="timeline__org">Pathao Limited · Data Science, Analytics &amp; Insights · Dhaka, Bangladesh</p>
+          <ul>
+            <li>Developed five KPIs and metrics for measuring the brand health of Pathao Courier, aligned with company-wide strategic goals.</li>
+            <li>Designed data-driven questionnaires to assess brand health, improving response quality and depth of insights.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="subhead">Teaching &amp; Service</h3>
+    <ol class="timeline">
+      <li>
+        <div class="timeline__date">2025</div>
+        <div>
+          <h4 class="timeline__role">Reviewer</h4>
+          <p class="timeline__org">AAAI 2026</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jun 2024 – Aug 2024</div>
+        <div>
+          <h4 class="timeline__role">Instructor</h4>
+          <p class="timeline__org">National Camp, Bangladesh Artificial Intelligence Olympiad</p>
+          <ul>
+            <li>Designed and delivered lessons on classification algorithms and evaluation metrics for high school students, and created quizzes to assess their understanding.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jan 2023 – Dec 2023</div>
+        <div>
+          <h4 class="timeline__role">Student Activity Secretary</h4>
+          <p class="timeline__org">IEEE University of Dhaka Student Branch</p>
+          <ul>
+            <li>Organized workshops, interactive sessions, and experience-sharing sessions with industry experts.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Dec 2023</div>
+        <div>
+          <h4 class="timeline__role">Speaker, Dui Prishthar Bisheshoggo</h4>
+          <p class="timeline__org">IEEE Women in Engineering</p>
+          <ul>
+            <li>Spoke about my experiences in hackathons and datathons to encourage more women to take part in tech competitions.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">Jul 2019 – Dec 2020</div>
+        <div>
+          <h4 class="timeline__role">Mentor</h4>
+          <p class="timeline__org">Bangladesh Robot Olympiad</p>
+          <ul>
+            <li>Ran robotics workshops in several high schools and developed quizzes for the olympiad.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================ Education & Awards ============================ -->
+  <section class="section" id="education" aria-labelledby="edu-heading">
+    <div class="section__head">
+      <h2 class="section__title" id="edu-heading">Education &amp; Awards</h2>
+    </div>
+
+    <ol class="timeline">
+      <li>
+        <div class="timeline__date">Jan 2019 – Mar 2024</div>
+        <div>
+          <h4 class="timeline__role">B.Sc. in Robotics and Mechatronics Engineering</h4>
+          <p class="timeline__org"><a href="https://rme.du.ac.bd/">University of Dhaka</a> · CGPA 3.75/4.00 (final year 3.88/4.00)</p>
+          <ul>
+            <li>Thesis: Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph <a href="https://docs.google.com/presentation/d/1Qq-LXbnIHoO0C8htiiMZmyBWDhDUo4NN/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener">[slides]</a></li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="subhead">Awards &amp; Scholarships</h3>
+    <ol class="timeline">
+      <li>
+        <div class="timeline__date">2023–2024</div>
+        <div>
+          <h4 class="timeline__role">Special Innovation Fund research grant</h4>
+          <p class="timeline__org">Bangladesh Ministry of Science and Technology · Project ID SRG-232431</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2024</div>
+        <div>
+          <h4 class="timeline__role">Engineering Faculty Undergraduate Merit Scholarship</h4>
+          <p class="timeline__org">University of Dhaka</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2021</div>
+        <div>
+          <h4 class="timeline__role">Honourable Mention, NASA Earth Observatory Dashboard Hackathon</h4>
+          <p class="timeline__org">NASA, ESA and JAXA</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2021</div>
+        <div>
+          <h4 class="timeline__role">11th Place, Sussex-Huawei Locomotion Challenge</h4>
+          <p class="timeline__org">University of Sussex and Huawei</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2021</div>
+        <div>
+          <h4 class="timeline__role">Second Runner-up, Ada Lovelace Datathon</h4>
+          <p class="timeline__org">Bangladesh Open Source Network</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2019</div>
+        <div>
+          <h4 class="timeline__role">10th Place, 3rd Women's Mathematics Olympiad</h4>
+          <p class="timeline__org">Women's Mathematics Olympiad Committee &amp; A F Mujibur Rahman Foundation</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2019</div>
+        <div>
+          <h4 class="timeline__role">2nd Place, Pi Day Celebration</h4>
+          <p class="timeline__org">Department of Mathematics, University of Dhaka</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline__date">2018</div>
+        <div>
+          <h4 class="timeline__role">Talent Pool Scholarship, HSC Examination</h4>
+          <p class="timeline__org">Dhaka Education Board</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================ Projects ============================ -->
+  <section class="section" id="projects" aria-labelledby="proj-heading">
+    <div class="section__head">
+      <h2 class="section__title" id="proj-heading">Selected Projects</h2>
+    </div>
+    <div class="proj-grid">
+      {% for post in site.posts %}{% if post.categories contains 'course-project' %}
+        {% include project-card.html project=post kicker='Course project' %}
+      {% endif %}{% endfor %}
+      {% for post in site.posts %}{% if post.categories contains 'course-personal' %}
+        {% include project-card.html project=post kicker='Personal project' %}
+      {% endif %}{% endfor %}
+    </div>
+  </section>
+
+</div>

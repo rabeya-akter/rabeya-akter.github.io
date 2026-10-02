@@ -1,0 +1,83 @@
+---
+layout: publication
+permalink: /projects/bornil/
+order: 7
+title: "Bornil: An Open-Source Sign Language Data Crowdsourcing Platform for AI Enabled Dialect-Agnostic Communication"
+short_title: "Bornil"
+categories: research-completed
+venue: "arXiv preprint arXiv:2308.15402, 2023"
+venue_short: "arXiv 2023"
+topics: ["Datasets", "Sign Language", "Crowdsourcing"]
+authors: 'Shahriar Elahi Dhruvo, Mohammad Akhlaqur Rahman, Manash Kumar Mandal, Md. Istiak Hossain Shihab, A. A. Noman Ansary, Kaneez Fatema Shithi, Sanjida Khanom, <span class="me">Rabeya Akter</span>, Safaeid Hossain Arib, M.N. Ansary, Sazia Mehnaz, Rezwana Sultana, Sejuti Rahman, Sayma Sultana Chowdhury, Sabbir Ahmed Chowdhury, Farig Sadeque, Asif Sushmit'
+arxiv: https://arxiv.org/abs/2308.15402
+thumb: images/papers/bornil/thumb.webp
+image: images/papers/bornil/thumb.webp
+summary: "Bornil is an open-source platform for recording, annotating, and validating multilingual sign language data. It was used to build BornilDB v1.0, the largest Bangladeshi Sign Language dataset (73 hours, 21,000+ samples), with recognition benchmarks for this low-resource setting."
+tldr: "Sign language AI is bottlenecked by data. Bornil lets signers record, annotators label at sentence and gloss level, and validators check quality, all in one crowdsourcing platform."
+stats:
+  - value: "73 h"
+    label: "of Bangla Sign Language video in BornilDB v1.0"
+  - value: "21,154"
+    label: "recorded samples"
+  - value: "25,572"
+    label: "unique Bengali words (138,586 total)"
+  - value: "&lt; 3 mo"
+    label: "for a three-person signer group to build the dataset"
+teaser: images/papers/bornil/platform.webp
+teaser_class: narrow
+teaser_caption: "<b>The Bornil platform.</b> Validators review recordings and metadata (top), and annotators align sentence and gloss labels to the video timeline (bottom)."
+bibtex: |
+  @article{dhruvo2023bornil,
+    title   = {Bornil: An Open-Source Sign Language Data Crowdsourcing Platform for
+               {AI} Enabled Dialect-Agnostic Communication},
+    author  = {Dhruvo, Shahriar Elahi and Rahman, Mohammad Akhlaqur and Mandal, Manash Kumar and
+               Shihab, Md. Istiak Hossain and Ansary, A. A. Noman and Shithi, Kaneez Fatema and
+               Khanom, Sanjida and Akter, Rabeya and Arib, Safaeid Hossain and Ansary, M. N. and
+               Mehnaz, Sazia and Sultana, Rezwana and Rahman, Sejuti and Chowdhury, Sayma Sultana and
+               Chowdhury, Sabbir Ahmed and Sadeque, Farig and Sushmit, Asif},
+    journal = {arXiv preprint arXiv:2308.15402},
+    year    = {2023}
+  }
+---
+
+<h2>Abstract</h2>
+<p class="abstract">The absence of annotated sign language datasets has hindered the development of sign language recognition and translation technologies. In this paper, we introduce Bornil; a crowdsource-friendly, multilingual sign language data collection, annotation, and validation platform. Bornil allows users to record sign language gestures and lets annotators perform sentence and gloss-level annotation. It also allows validators to make sure of the quality of both the recorded videos and the annotations through manual validation to develop high-quality datasets for deep learning-based Automatic Sign Language Recognition. To demonstrate the system's efficacy; we collected the largest sign language dataset for Bangladeshi Sign Language dialect, perform deep learning based Sign Language Recognition modeling, and report the benchmark performance. The Bornil platform, BornilDB v1.0 Dataset, and the codebases are available.</p>
+
+<h2>Data is the bottleneck</h2>
+<p class="kicker">Motivation</p>
+<p>Sign language recognition and translation need large, carefully annotated video datasets. For most of the world's sign languages, including Bangladeshi Sign Language, such data barely exists. Collecting it is slow because recording, labelling and quality control usually happen in separate tools and by separate people. Bornil puts the whole loop in one open-source, crowdsourcing-friendly platform.</p>
+
+<h2>Platform</h2>
+<p class="kicker">Record, annotate, validate</p>
+<ol class="steps">
+  <li><strong>Record</strong>Contributors sign a sentence shown on screen. Each recording stores metadata such as lighting, camera distance, background and subject view.</li>
+  <li><strong>Annotate</strong>Annotators add sentence-level transcriptions and gloss-level labels aligned to the video timeline, and can mark noise.</li>
+  <li><strong>Validate</strong>Validators review both the recording and its annotations before they enter the dataset, keeping quality high.</li>
+</ol>
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/bornil/record.webp" alt="Bornil recording screen with the prompt sentence and the webcam view of a signer" loading="lazy"></div>
+  <figcaption><b>Recording.</b> A contributor signs the prompt sentence shown at the top, with recordings capped at 60 seconds.</figcaption>
+</figure>
+
+<h2>BornilDB v1.0</h2>
+<p>A test group of three sign-language-literate people with congenital hearing loss used the platform to build BornilDB v1.0 in under three months.</p>
+<ul>
+  <li><strong>73 hours</strong> of video, with 21,104 scripted samples and 50 spontaneous recordings prompted by a topic word.</li>
+  <li><strong>138,586 words</strong> in total and <strong>25,572 unique</strong> Bengali words, averaging 7.7 words and 13.4 seconds per recording.</li>
+  <li>Released with MediaPipe and OpenPose keypoints, multi-view recordings, transcriptions and gloss annotations.</li>
+</ul>
+
+<h2>Benchmark</h2>
+<p class="kicker">BornilDB test set · BLEU</p>
+<p>A deep-learning model trained on the collected data gives a first benchmark. As expected for a new, low-resource language, scores are highest on short sentences and fall as sentences get longer.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Sentence length</th><th>Samples</th><th>BLEU-1</th><th>BLEU-2</th><th>BLEU-3</th><th>BLEU-4</th></tr></thead>
+  <tbody>
+    <tr><td>5 words</td><td>1,146</td><td>12.01</td><td>5.35</td><td>2.58</td><td>1.30</td></tr>
+    <tr><td>7 words</td><td>1,728</td><td>10.19</td><td>4.08</td><td>1.75</td><td>0.79</td></tr>
+    <tr><td>10 words</td><td>2,110</td><td>8.66</td><td>3.36</td><td>1.36</td><td>0.59</td></tr>
+  </tbody>
+</table>
+</div>
+<p>BornilDB later served as one of the three benchmarks for <a href="{{ site.baseurl }}/projects/signformer-gcn/">SignFormer-GCN</a>.</p>

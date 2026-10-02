@@ -1,0 +1,34 @@
+{% capture page_title %}{% if page.title %}{{ page.title | strip_html }} · {{ site.name }}{% else %}{{ site.name }}{% endif %}{% endcapture %}
+{% capture page_desc %}{% if page.summary %}{{ page.summary | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+{% if page.thumb %}{% assign og_image = page.thumb | prepend: '/' | prepend: site.url %}{% else %}{% assign og_image = site.url | append: '/images/rabeya-lively.jpg' %}{% endif %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page_title | strip }}</title>
+<meta name="description" content="{{ page_desc | strip | escape }}">
+<meta name="author" content="{{ site.name }}">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+<meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page_title | strip | escape }}">
+<meta property="og:description" content="{{ page_desc | strip | escape }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="{{ site.baseurl }}/images/rabeya-lively.jpg?v=3" type="image/jpeg">
+<link rel="apple-touch-icon" href="{{ site.baseurl }}/images/rabeya-lively.jpg?v=3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.baseurl }}/style.css?v=20261002-r1">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-E00L9PT3V9');
+</script>

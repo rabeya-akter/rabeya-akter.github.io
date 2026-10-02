@@ -1,0 +1,150 @@
+---
+layout: publication
+permalink: /projects/ek-bangla/
+order: 1
+featured: true
+title: "EK-Bangla: When Hand-Object Interaction Meets Low-Resource Generation"
+short_title: "EK-Bangla"
+categories: research-completed
+venue: "Under review at WACV 2027 (Round 2)"
+venue_short: "Preprint 2026"
+status: "Under review"
+topics: ["Egocentric Video", "Hand-Object Interaction", "Benchmarks", "Low-Resource Languages"]
+authors: '<span class="me">Rabeya Akter</span>, Md Salman Shamil, A. K. M. Fazley Rabbi, Arpa Deb, Ridwain Islam, Md Adnan Arefeen'
+coming_soon: "Paper &amp; code coming soon"
+thumb: images/papers/ek-bangla/thumb.webp
+image: images/papers/ek-bangla/thumb.webp
+summary: "EK-Bangla is the first benchmark for fine-grained egocentric hand-object interaction in Bangla, built on EPIC-KITCHENS-100: 9,600 native-speaker-verified captions and 2,000 four-way MCQs. Across nine MLLMs, rankings flip between captioning and MCQ, and every model scores lower in Bangla than in English on identical clips."
+tldr: "Same video, same model, different language: multimodal LLMs that describe hand-object interactions well in English drop hand, object, and verb details in Bangla. EK-Bangla measures that gap with a caption track and a multiple-choice track built from the same egocentric clips."
+stats:
+  - value: "9,600"
+    label: "human-verified Bangla captions in EK-BanglaCAP"
+  - value: "2,000"
+    label: "four-way MCQs in EK-BanglaMCQ, from 1,346 verified captions"
+  - value: "54.5%"
+    label: "of MLLM draft captions needed native-speaker revision"
+  - value: "up to −23.9"
+    label: "pt accuracy drop for Bangla vs. English MCQs"
+teaser: images/papers/ek-bangla/teaser.webp
+teaser_caption: "<b>Same video, same model, different target language.</b> Left: two clips described by Gemini 3.1 Pro, with errors marked against the human-verified reference. The Bangla (BN) output carries errors the English (EN) output does not. Right: mean MCQ accuracy of nine models across six categories. Bangla trails English in every category, by 5.5 to 10.5 points."
+---
+
+<h2>Abstract</h2>
+<p class="abstract">Describing hand-object interactions in egocentric video requires resolving the acting hand, manipulated object, contact, and temporal progression details important for user-facing visual systems. Although multimodal large language models (MLLMs) are increasingly evaluated on fine-grained egocentric understanding, their ability to preserve such grounding in low-resource languages remains unclear. We introduce EK-Bangla, a two-track Bangla benchmark built on the EPIC-KITCHENS-100 validation split. EK-BanglaCAP contains 9,600 MLLM-generated Bangla captions verified by native speakers under a nine-category error taxonomy, with 54.5% requiring revision. EK-BanglaMCQ contains 2,000 four-way questions constructed from verified captions through a proposer, a distractor, and a verifier pipeline that rejects 76.07% of candidates, followed by human validation for quality assurance. Across nine open- and closed-source MLLMs, performance varies substantially across captioning and multiple-choice questions: Qwen3.5-9B, for example, trails GPT-5 mini by 17.44% in chrF++ on captioning yet exceeds it by 7.20% accuracy on MCQ. Under matched visual evidence, all nine models perform worse on Bangla than English MCQs, with drops up to 23.90%. These results show that fine-grained multimodal capability does not transfer uniformly across language and evaluation format, motivating diagnostic evaluation of low-resource egocentric understanding.</p>
+
+<h2>Fine-grained, but only in English</h2>
+<p class="kicker">Motivation</p>
+<p>A user-facing visual assistant has to say <em>which</em> hand did <em>what</em> to <em>which</em> object, and in what order, and it has to say it in the user's own language. Egocentric video makes this hard: the evidence often occupies a small part of the frame, hands and objects occlude each other, the camera moves, and the meaning of an action depends on how it unfolds over time.</p>
+<p>Fine-grained hand-object benchmarks such as EgoHOIBench and HanDyVQA are English-only, while multilingual and Bangla benchmarks focus on images or coarse scene-level video. Nothing tests whether an MLLM can convey subtle interaction details precisely in a low-resource language. EK-Bangla fills that gap for Bangla.</p>
+
+<h2>Two tracks, one set of clips</h2>
+<p class="kicker">Benchmark construction</p>
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/ek-bangla/pipeline.webp" alt="EK-Bangla data-generation pipeline for captions and multiple-choice questions" loading="lazy"></div>
+  <figcaption><b>Data-generation pipeline.</b> (a) EK-BanglaCAP: eight frames plus narration, verb and noun annotations produce a draft Bangla caption, which native speakers verify and correct. (b) EK-BanglaMCQ: verified captions feed a three-stage proposer, distractor and verifier pipeline, followed by human validation.</figcaption>
+</figure>
+
+<h3>EK-BanglaCAP: free-form captions</h3>
+<ol class="steps">
+  <li><strong>Draft</strong>Eight frames sampled at full 1920&times;1080 resolution, together with the EPIC narration, verb and noun as weak context, go to Gemini 3.1 Pro. A first pass records hand roles, contact, motion and action phases. A second pass rewrites this into one fluent Bangla sentence.</li>
+  <li><strong>Verify</strong>Native Bangla speakers watch every source clip and revise the caption where needed. 5,234 of 9,600 drafts (54.5%) needed correction.</li>
+  <li><strong>Label errors</strong>Each corrected draft is tagged with a nine-category taxonomy: six visual errors (wrong verb, object, hand or tool, hallucination, omission) and three linguistic ones (unnatural wording, untranslated text, grammar or spelling).</li>
+</ol>
+<p>Verified captions average <strong>24.7 words</strong>, against 2.9 words for the original EPIC narrations.</p>
+
+<h3>EK-BanglaMCQ: multiple choice</h3>
+<ol class="steps">
+  <li><strong>Propose</strong>Working from caption text alone, so every answer traces back to human-verified content, a proposer picks the applicable categories and writes one question per category.</li>
+  <li><strong>Distract</strong>A distractor generator writes three plausible but wrong options that match the correct answer in form, detail and length.</li>
+  <li><strong>Verify</strong>A verifier sees only the question and shuffled options, with no video. Any item it answers correctly is rejected, so questions solvable from priors or lexical cues are filtered out. 6,358 of 8,358 proposals (76.07%) were rejected.</li>
+</ol>
+<p>A 300-item human audit (15% of the benchmark), with each item judged by two of three annotators, approved 100% of questions as valid, 100% of answers as correct, and 98% of distractors as plausible.</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Category</th><th>What it tests</th><th>Questions</th></tr></thead>
+  <tbody>
+    <tr><td>Action</td><td>Manipulation performed by the hands</td><td>332</td></tr>
+    <tr><td>Object</td><td>Object or tool being acted on</td><td>780</td></tr>
+    <tr><td>Hand-Object Relation</td><td>Which hand contacts which object</td><td>206</td></tr>
+    <tr><td>Temporal</td><td>Order in which events occur</td><td>204</td></tr>
+    <tr><td>Location</td><td>Source or destination of the action</td><td>454</td></tr>
+    <tr><td>State</td><td>Observable change in an object</td><td>24</td></tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/ek-bangla/stats.webp" alt="Caption length histogram, caption error counts, and MCQ category distribution" loading="lazy"></div>
+  <figcaption><b>Benchmark statistics.</b> (a) Reference caption lengths. (b) Errors found during human verification. Hallucination, omission, wrong verb and wrong object far outnumber linguistic errors. (c) MCQ category distribution.</figcaption>
+</figure>
+
+<h2>Results</h2>
+<p class="kicker">Nine MLLMs · 8 frames at 456&times;256</p>
+<p>We evaluate three closed-source models (GPT-5.1, GPT-5 mini, Gemini-2.5-Flash) and six open-source models from 4B to 30B parameters.</p>
+
+<h3>Captioning: no single leader</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Model</th><th>BLEU-4</th><th>ROUGE-L</th><th>METEOR</th><th>CIDEr</th><th>chrF++</th></tr></thead>
+  <tbody>
+    <tr><td>GPT-5.1</td><td>5.77</td><td>28.02</td><td>30.90</td><td>12.75</td><td>35.58</td></tr>
+    <tr><td>GPT-5 mini</td><td>3.34</td><td>23.25</td><td>23.64</td><td>9.46</td><td>30.85</td></tr>
+    <tr><td>Gemini-2.5-Flash</td><td>9.61</td><td>32.68</td><td>27.35</td><td>32.90</td><td>31.40</td></tr>
+    <tr><td>Qwen3-VL-4B</td><td>0.61</td><td>15.12</td><td>9.46</td><td>4.30</td><td>16.66</td></tr>
+    <tr><td>Qwen3.5-9B</td><td>0.36</td><td>11.49</td><td>6.42</td><td>4.03</td><td>13.41</td></tr>
+    <tr><td>InternVL2.5-8B</td><td>0.98</td><td>12.31</td><td>9.09</td><td>1.54</td><td>13.06</td></tr>
+    <tr><td>LLaVA-NeXT-Mistral-7B</td><td>5.61</td><td>17.77</td><td>14.41</td><td>4.83</td><td>18.04</td></tr>
+    <tr><td>Qwen3-VL-30B</td><td>8.86</td><td>30.78</td><td>26.81</td><td>24.18</td><td>30.62</td></tr>
+    <tr><td>Gemma3-27B</td><td>4.88</td><td>26.14</td><td>21.63</td><td>19.58</td><td>27.37</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Gemini-2.5-Flash leads BLEU, ROUGE-L and CIDEr, while GPT-5.1 leads METEOR and chrF++. chrF++ splits the models into two bands: closed-source and larger open-source models score 27.4–35.6, and smaller open-source models score 13.1–18.0.</p>
+
+<h3>Multiple choice: rankings flip</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Model</th><th>Direct</th><th>+ CoT</th></tr></thead>
+  <tbody>
+    <tr><td>GPT-5.1</td><td>73.65</td><td>76.80</td></tr>
+    <tr><td>Gemini-2.5-Flash</td><td>73.20</td><td>76.05</td></tr>
+    <tr><td>Qwen3.5-9B</td><td>69.10</td><td>–</td></tr>
+    <tr><td>Qwen3-VL-4B</td><td>68.40</td><td>–</td></tr>
+    <tr><td>GPT-5 mini</td><td>61.90</td><td>67.00</td></tr>
+    <tr><td>Qwen3-VL-30B</td><td>60.50</td><td>–</td></tr>
+    <tr><td>Gemma3-27B</td><td>55.65</td><td>–</td></tr>
+    <tr><td>InternVL2.5-8B</td><td>47.55</td><td>–</td></tr>
+    <tr><td>LLaVA-NeXT-Mistral-7B</td><td>27.35</td><td>–</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Overall accuracy (%) on EK-BanglaMCQ, where chance is 25%. Qwen3.5-9B beats GPT-5 mini by 7.20 points here, despite trailing it by 17.44 chrF++ points on captioning. Free-form Bangla generation and grounded answer selection test different skills, so the two tracks are not interchangeable. Chain-of-thought prompting adds 2.85–5.10 points for the closed-source models.</p>
+
+<h3>Bangla vs. English on identical clips</h3>
+<div class="figure-row">
+  <figure class="figure" style="--ar: 1.36">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/ek-bangla/crosslingual.webp" alt="Heatmap of Bangla minus English accuracy per model and category" loading="lazy"></div>
+    <figcaption><b>Bangla minus English accuracy.</b> Frames, prompts and decoding are held fixed. Only the question language changes.</figcaption>
+  </figure>
+  <figure class="figure" style="--ar: 1.68">
+    <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/ek-bangla/frames.webp" alt="Bar chart of MCQ accuracy as the number of frames grows from 0 to 16" loading="lazy"></div>
+    <figcaption><b>Frame budget.</b> The first frame gives the largest gain. GPT-5 mini peaks at 8 frames, while GPT-5.1 keeps improving up to 16.</figcaption>
+  </figure>
+</div>
+<ul>
+  <li>All nine models score lower in Bangla, from <strong>−1.20</strong> points for Gemini-2.5-Flash to <strong>−23.90</strong> for InternVL2.5-8B.</li>
+  <li>Averaged over models, Object questions show the largest gap (10.48 points) and Hand-Object Relation the smallest (5.50 points).</li>
+  <li>Without any frames, GPT-5 mini and GPT-5.1 reach only 31.4% and 35.5%, close to the 25% chance level, which confirms that the verifier removed most questions answerable from text alone.</li>
+</ul>
+
+<h2>Qualitative examples</h2>
+<figure class="figure figure--narrow">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/papers/ek-bangla/qualitative.webp" alt="Three EK-BanglaMCQ examples with model predictions" loading="lazy"></div>
+  <figcaption><b>EK-BanglaMCQ samples.</b> (a) Glasses held in both hands are clearly visible, and all nine models answer correctly. (b) The evidence occupies a small region, and only four of nine models are correct. (c) Only GPT-5.1 is correct, and chain-of-thought fixes Gemini-2.5-Flash's answer.</figcaption>
+</figure>
+
+<h2>Takeaways</h2>
+<div class="note">
+  <p>Fine-grained multimodal ability does not transfer evenly across languages or evaluation formats. Most caption errors are visual (hallucination, omission, wrong verb, wrong object), not linguistic, so the Bangla gap is about grounding, not just fluency. EK-Bangla gives a diagnostic baseline for measuring progress on low-resource egocentric understanding.</p>
+</div>
