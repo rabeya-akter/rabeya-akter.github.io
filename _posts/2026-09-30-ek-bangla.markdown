@@ -1,8 +1,7 @@
 ---
 layout: publication
 permalink: /projects/ek-bangla/
-order: 1
-featured: true
+order: 2
 title: "EK-Bangla: When Hand-Object Interaction Meets Low-Resource Generation"
 short_title: "EK-Bangla"
 categories: research-completed

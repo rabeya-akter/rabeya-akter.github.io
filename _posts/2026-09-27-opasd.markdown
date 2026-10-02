@@ -1,7 +1,8 @@
 ---
 layout: publication
 permalink: /projects/opasd/
-order: 2
+order: 1
+featured: true
 title: "Teach Yourself Where to Look: On-Policy Attention Self-Distillation for Reasoning"
 short_title: "OPASD"
 categories: research-completed
