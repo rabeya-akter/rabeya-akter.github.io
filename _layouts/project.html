@@ -5,32 +5,72 @@ layout: default
   <header class="paper-hero">
     <div class="pub__meta">
       <span class="badge">{% if page.categories contains 'office-project' %}Industry project{% elsif page.categories contains 'course-project' %}Course project{% else %}Personal project{% endif %}</span>
+      {% for t in page.topics %}<span class="badge badge--outline">{{ t }}</span>{% endfor %}
     </div>
     <h1 class="paper-hero__title">{{ page.title }}</h1>
-    {% if page.course %}<p class="paper-hero__affils">{{ page.course }}</p>{% endif %}
+    {% if page.team %}<p class="paper-hero__authors">{{ page.team }}</p>{% endif %}
+    {% if page.course %}<p class="paper-hero__affils">{{ page.course }}{% if page.period %} · {{ page.period }}{% endif %}</p>{% endif %}
+    {% if page.supervisors %}<p class="paper-hero__notes">Supervised by {{ page.supervisors }}</p>{% endif %}
     {% if page.org %}<p class="paper-hero__affils">{{ page.org }}</p>{% endif %}
-    {% if page.code or page.website or page.paper or page.demo1 %}
+    {% if page.code or page.website or page.paper or page.report or page.demo1 %}
     <div class="btn-row">
       {% if page.website %}<a class="btn btn--primary btn--lg" href="{{ page.website }}" target="_blank" rel="noopener">{% include icon.html name='page' %}Website</a>{% endif %}
-      {% if page.code %}<a class="btn btn--lg" href="{{ page.code }}" target="_blank" rel="noopener">{% include icon.html name='code' %}Code</a>{% endif %}
+      {% if page.code %}<a class="btn btn--primary btn--lg" href="{{ page.code }}" target="_blank" rel="noopener">{% include icon.html name='code' %}Code</a>{% endif %}
+      {% if page.report %}<a class="btn btn--lg" href="{{ page.report }}" target="_blank" rel="noopener">{% include icon.html name='paper' %}Report</a>{% endif %}
       {% if page.paper %}<a class="btn btn--lg" href="{{ page.paper }}" target="_blank" rel="noopener">{% include icon.html name='paper' %}Paper</a>{% endif %}
+      {% if page.videos %}<a class="btn btn--lg" href="#demos">{% include icon.html name='video' %}Demos</a>{% else %}
       {% if page.demo1 %}<a class="btn btn--lg" href="{{ page.demo1 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 1</a>{% endif %}
       {% if page.demo2 %}<a class="btn btn--lg" href="{{ page.demo2 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 2</a>{% endif %}
       {% if page.demo3 %}<a class="btn btn--lg" href="{{ page.demo3 }}" target="_blank" rel="noopener">{% include icon.html name='video' %}Demo 3</a>{% endif %}
+      {% endif %}
     </div>
     {% endif %}
   </header>
 
   <div class="paper-body">
-    <figure class="figure figure--narrow">
+    {% if page.tldr %}
+    <section class="tldr" aria-label="Summary">
+      <p class="tldr__label">In short</p>
+      <p>{{ page.tldr }}</p>
+    </section>
+    {% endif %}
+
+    {% if page.stats %}
+    <ul class="stats">
+      {% for s in page.stats %}<li><strong>{{ s.value }}</strong><span>{{ s.label }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    <figure class="figure figure--{{ page.image_class | default: 'narrow' }}">
       <div class="figure__frame"><img src="{{ site.baseurl }}/{{ page.image }}" alt="Illustration for {{ page.title | escape }}"></div>
+      {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
     </figure>
+
     <div class="prose">
       {{ content }}
-      {% if page.tools %}<p><strong>Tools:</strong> {{ page.tools }}</p>{% endif %}
+
+      {% if page.videos %}
+      <h2 id="demos">Demos</h2>
+      <div class="video-grid">
+        {% for v in page.videos %}
+        <figure class="video">
+          <div class="video__frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ v.id }}" title="{{ v.label | escape }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <figcaption>{{ v.label }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.tools %}<p class="tools"><strong>Tools:</strong> {{ page.tools }}</p>{% endif %}
     </div>
     <nav class="paper-nav" aria-label="Back">
       <a href="{{ site.baseurl }}/#projects"><span>← Back</span>All projects</a>
     </nav>
   </div>
 </article>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.querySelector('.prose'), {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false});"></script>

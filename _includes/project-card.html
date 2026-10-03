@@ -1,10 +1,13 @@
 {% assign project = include.project %}
 <a class="proj" href="{{ project.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
-  <div class="proj__media">
-    <img src="{{ site.baseurl }}/{{ project.image }}" alt="" loading="lazy" decoding="async">
+  <div class="proj__media{% if project.thumb_contain %} proj__media--contain{% endif %}">
+    <img src="{{ site.baseurl }}/{{ project.thumb | default: project.image }}" alt="" loading="lazy" decoding="async">
   </div>
   <div class="proj__body">
-    <p class="proj__kicker">{{ include.kicker }}</p>
-    <h3 class="proj__title">{{ project.title }}</h3>
+    <p class="proj__kicker">{{ include.kicker }}{% if project.period %} · {{ project.period }}{% endif %}</p>
+    <h3 class="proj__title">{{ project.short_title | default: project.title }}</h3>
+    {% if project.summary %}<p class="proj__summary">{{ project.summary }}</p>{% endif %}
+    {% if project.topics %}<ul class="proj__tags">{% for t in project.topics %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+    <span class="proj__more">View project →</span>
   </div>
 </a>

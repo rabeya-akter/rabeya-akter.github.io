@@ -5,7 +5,7 @@ order: 5
 title: "Counting Through Occlusion: Framework for Open World Amodal Counting"
 short_title: "CountOCC"
 categories: research-completed
-venue: "arXiv preprint arXiv:2511.12702 · Submitted to WACV 2027"
+venue: "arXiv preprint arXiv:2511.12702, 2025"
 venue_short: "arXiv 2025"
 status: "Under review"
 topics: ["Computer Vision", "Amodal Counting", "Multimodal"]

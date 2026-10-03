@@ -613,6 +613,21 @@ p { margin: 0 0 1em; }
 .proj__body { flex: 1; padding: 14px 16px 16px; }
 .proj__kicker { margin: 0 0 4px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .proj__title { font-size: 17px; line-height: 1.3; }
+.proj__body { display: flex; flex-direction: column; }
+.proj__summary { margin: 8px 0 12px; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+.proj__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.proj__tags li { padding: 2px 9px; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink-2); font-size: 12px; }
+.proj__more { margin-top: auto; color: var(--accent); font-size: 13.5px; font-weight: 600; }
+.proj-grid--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Embedded demo videos on project pages */
+.video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 8px; }
+.video { margin: 0; }
+.video__frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--rule); border-radius: 10px; background: var(--figure-bg); }
+.video__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; text-align: center; }
+.tools { margin-top: 26px; color: var(--muted); font-size: 14.5px; }
+@media (max-width: 680px) { .video-grid, .proj-grid--wide { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
    Experience

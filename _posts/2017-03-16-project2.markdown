@@ -1,16 +1,47 @@
 ---
 layout: project
 title:  "A Comprehensive Comparative Analysis of Emotional Support Delivery by NAO Robots and Humans Across Varied Emotional States"
+short_title: "Emotional Support: NAO Robot vs. Humans"
 image: images/nao.png
+image_class: wide
+image_caption: "<b>Study sessions.</b> Participants receive emotional support from the NAO robot, which responds with behaviours tailored to each emotion."
 categories: course-project
-course: "RME 4211 (Human Robot Interaction Lab)"
+topics: ["Human-Robot Interaction", "User Study"]
+course: "RME 4211 · Human Robot Interaction Lab, University of Dhaka"
+period: "Aug – Nov 2023"
+team: '<span class="me">Rabeya Akter</span>, Safaeid Hossain Arib, Tapos Biswas'
+supervisors: "Dr. Lafifa Jamal and Shifat E Arman"
 code: https://github.com/rabeya-akter/HRI-Project---Emotional-Support-by-NAO-Robot
+report: "https://github.com/rabeya-akter/HRI-Project---Emotional-Support-by-NAO-Robot/blob/main/HRI%20Lab%20Project%20Report%20-%20Rabeya%20%2B%20Safaeid%20%2B%20Tapos.pdf"
 demo1: https://www.youtube.com/watch?v=ssw4qzzGjA8
-demo2: https://youtu.be/w5L0kWvJ2N8
-demo3: https://youtu.be/Y1V9DRkVTuw
-
+summary: "Can a robot comfort people as well as a human? We programmed NAO to respond to happiness, sadness, and fear, then compared it with human support on emotional impact, comfort, clarity, and satisfaction."
+tldr: "Can a small humanoid robot comfort someone as well as a person can? We programmed NAO to respond to three emotions and designed a study that scores robot and human support side by side."
+stats:
+  - value: "3"
+    label: "emotional states: happiness, sadness and fear"
+  - value: "2"
+    label: "support sources compared: NAO robot vs. human"
+  - value: "5"
+    label: "measures: impact, comfort, clarity, satisfaction, preference"
+videos:
+  - id: ssw4qzzGjA8
+    label: "NAO responding to happiness"
+  - id: w5L0kWvJ2N8
+    label: "NAO responding to sadness"
+  - id: Y1V9DRkVTuw
+    label: "NAO responding to fear"
+tools: "NAO humanoid robot, Google Forms"
 ---
-Conducted a comparative analysis of emotional support delivery by NAO robot and humans across 3 emotional
-states, developing a system and questionnaire to quantify emotional impact, comfort levels, communication clarity,
-and overall satisfaction, with the goal of assessing the efficacy of robotic versus human emotional support and
-identifying areas for improvement.
+
+<h2>Motivation</h2>
+<p>Social robots are increasingly proposed as companions in care settings, but it is unclear how their emotional support compares with a human's. This project measures that gap directly, using the same emotional situations and the same questionnaire for both sources of support.</p>
+
+<h2>What we built</h2>
+<ol class="steps">
+  <li><strong>Emotion-specific behaviours</strong>We programmed NAO with response behaviours for happiness, sadness and fear, so the robot reacts appropriately to each emotional state.</li>
+  <li><strong>Study protocol</strong>Participants experience support from both NAO and a human. Informed consent, an observer present at all times and a controlled, distraction-free room keep the sessions safe and comparable.</li>
+  <li><strong>Questionnaire</strong>A structured questionnaire scores each session on emotional impact, comfort, communication clarity, overall satisfaction and personal preference.</li>
+</ol>
+
+<h2>Analysis</h2>
+<p>Scores for NAO and human support are compared per emotion to find where the robot is competitive, where it falls short, and what would make robotic emotional support more effective.</p>

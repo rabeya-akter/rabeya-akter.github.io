@@ -5,7 +5,7 @@ order: 2
 title: "EK-Bangla: When Hand-Object Interaction Meets Low-Resource Generation"
 short_title: "EK-Bangla"
 categories: research-completed
-venue: "Under review at WACV 2027 (Round 2)"
+venue: "Preprint, 2026"
 venue_short: "Preprint 2026"
 status: "Under review"
 topics: ["Egocentric Video", "Hand-Object Interaction", "Benchmarks", "Low-Resource Languages"]

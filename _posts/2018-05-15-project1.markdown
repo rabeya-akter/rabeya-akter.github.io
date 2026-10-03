@@ -1,12 +1,61 @@
 ---
 layout: project
-title:  "Automated Stock Trading Using Approximate Q Learning"
-image: images/stock.png
+title:  "Automated Stock Trading Using Approximate Q-Learning"
+short_title: "Automated Stock Trading"
+image: images/projects/stock/square.webp
+thumb: images/projects/stock/thumb.webp
+image_class: wide
+image_caption: "<b>Learned trading policy on Square Pharmaceuticals.</b> Price over the test period with the agent's buy (red) and sell (blue) decisions."
 categories: course-project
-course: "RME 3211 (Intelligent Systems and Robotics Lab)"
+topics: ["Reinforcement Learning", "Finance"]
+course: "RME 3211 · Intelligent Systems and Robotics Lab, University of Dhaka"
+period: "Aug – Nov 2022"
+team: '<span class="me">Rabeya Akter</span>, Safaeid Hossain Arib'
+supervisors: "Dr. Sejuti Rahman"
 code: https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning
-
+report: https://github.com/rabeya-akter/Automatic-Stock-Trading-Using-Approximate-Q-Learning/tree/main/Report
+summary: "A reinforcement learning agent that learns when to buy, sell, or hold three Bangladeshi stocks, using Q-learning with linear function approximation, tested with and without the COVID-19 period."
+tldr: "Instead of hand-written trading rules, a reinforcement learning agent learns when to buy, sell or hold three Bangladeshi stocks from price history alone."
+stats:
+  - value: "13.29%"
+    label: "return on investment, test period including COVID-19"
+  - value: "3"
+    label: "stocks: Grameenphone, Square Pharma, ACI Formulations"
+  - value: "3"
+    label: "actions: buy, sell or hold"
+tools: "Python, Jupyter"
 ---
-Developed an automated stock trading system using approximate Q-learning to optimize buy, sell, and hold
-decisions for three Bangladeshi stocks, achieving an 11% return on investment and demonstrating the effectiveness
-of reinforcement learning in financial decision-making.
+
+<h2>Approach</h2>
+<p>Trading is framed as a sequential decision problem. At each step the agent observes features of recent prices and chooses to buy, sell or hold. Because the state space is continuous, a tabular Q-table is replaced by <strong>approximate Q-learning</strong>, where Q-values are a linear function of the state features and the weights are updated from the temporal-difference error.</p>
+<div class="eq">\[ Q(s,a) = \mathbf{w}^\top \mathbf{f}(s,a), \qquad \mathbf{w} \leftarrow \mathbf{w} + \alpha \big[ r + \gamma \max_{a'} Q(s',a') - Q(s,a) \big]\, \mathbf{f}(s,a) \]</div>
+
+<h2>Stocks</h2>
+<ul>
+  <li><a href="https://www.investing.com/equities/grameenphone-ltd">Grameenphone Ltd (GRAE)</a></li>
+  <li><a href="https://www.investing.com/equities/square-pharmaceuticals-ltd">Square Pharmaceuticals Ltd (SQPH)</a></li>
+  <li><a href="https://www.investing.com/equities/aci-formulations-ltd">ACI Formulations Ltd (ACIF)</a></li>
+</ul>
+
+<h2>Results</h2>
+<p class="kicker">Return on investment on the test period</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Test period</th><th>ROI</th></tr></thead>
+  <tbody>
+    <tr class="ours"><td>Including the COVID-19 timeline</td><td>13.29%</td></tr>
+    <tr><td>Excluding the COVID-19 timeline</td><td>−37.46%</td></tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/projects/stock/grameenphone.webp" alt="Grameenphone price with buy and sell points" loading="lazy"></div>
+  <figcaption><b>Grameenphone Ltd.</b> Buy (red) and sell (blue) decisions.</figcaption>
+</figure>
+<figure class="figure">
+  <div class="figure__frame"><img src="{{ site.baseurl }}/images/projects/stock/aci.webp" alt="ACI Formulations price with buy and sell points" loading="lazy"></div>
+  <figcaption><b>ACI Formulations Ltd.</b> Buy (red) and sell (blue) decisions.</figcaption>
+</figure>
+
+<p>The code builds on <a href="https://github.com/KonstantinosNikolakakis/Stock-Trading-Reinforcement_Learning">this open-source implementation</a>.</p>
