@@ -1,0 +1,9 @@
+anchor: ek-bangla
+title: "EK-Bangla: When Hand-Object Interaction Meets Low-Resource Generation"
+short_title: "EK-Bangla"
+venue_short: "Preprint 2026"
+status: "Under review"
+authors: '<span class="me">Rabeya Akter</span>, Md Salman Shamil, A. K. M. Fazley Rabbi, Arpa Deb, Ridwain Islam, Md Adnan Arefeen'
+thumb: images/papers/ek-bangla/thumb.webp
+summary: "EK-Bangla is the first benchmark for fine-grained egocentric hand-object interaction in Bangla, built on EPIC-KITCHENS-100: 9,600 native-speaker-verified captions and 2,000 four-way MCQs. Across nine MLLMs, rankings flip between captioning and MCQ, and every model scores lower in Bangla than in English on identical clips."
+coming_soon: "Paper &amp; code coming soon"

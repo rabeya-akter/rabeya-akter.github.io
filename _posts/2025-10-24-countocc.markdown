@@ -5,9 +5,9 @@ order: 5
 title: "Counting Through Occlusion: Framework for Open World Amodal Counting"
 short_title: "CountOCC"
 categories: research-completed
-venue: "arXiv preprint arXiv:2511.12702, 2025"
-venue_short: "arXiv 2025"
-status: "Under review"
+venue: "Accepted at WACV 2026"
+venue_short: "WACV 2026"
+status: "Accepted"
 topics: ["Computer Vision", "Amodal Counting", "Multimodal"]
 authors: 'Safaeid Hossain Arib, <span class="me">Rabeya Akter</span>, Abdul Monaf Chowdhury, Md Jubair Ahmed Sourov, Md Mehedi Hasan'
 authors_full: 'Safaeid Hossain Arib<sup>1</sup>, <span class="me">Rabeya Akter</span><sup>1</sup>, Abdul Monaf Chowdhury<sup>1</sup>, Md Jubair Ahmed Sourov<sup>1</sup>, Md Mehedi Hasan<sup>1</sup>'
