@@ -7,6 +7,7 @@ short_title: "CountOCC"
 categories: research-completed
 venue: "Accepted at WACV 2026"
 venue_short: "WACV 2026"
+badge_style: accent
 status: "Accepted"
 topics: ["Computer Vision", "Amodal Counting", "Multimodal"]
 authors: 'Safaeid Hossain Arib, <span class="me">Rabeya Akter</span>, Abdul Monaf Chowdhury, Md Jubair Ahmed Sourov, Md Mehedi Hasan'
